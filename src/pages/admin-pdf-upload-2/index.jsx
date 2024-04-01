@@ -16,7 +16,7 @@ export default function AdminPdfUpload2() {
 
 
     function handleChange(event) {
-        setFormData(new FormData(event.target));
+        setFormData(new FormData(event.currentTarget));
     }
 
     async function handleSubmit(event) {
