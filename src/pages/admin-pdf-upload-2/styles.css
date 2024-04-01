@@ -1,0 +1,128 @@
+.container
+{
+    width:auto;
+    height:auto;
+    display:flex;
+    flex-direction:row;
+    gap:300px;
+    position: absolute;
+    left: 100px;
+    top:190px;
+}
+
+.container .pdf-display
+{
+    width:563px;
+    height: 525px;
+    top:181.5px;
+    left:125px;
+    background-color: #EEEEEE;
+}
+
+.container .add-details
+{
+    width:415px;
+    height:566px;
+    top:181.5px;
+    left:752px;
+    gap:42px;
+}
+
+.container .add-details .heading
+{
+    width:415px;
+    height: 72px;
+    gap: 8px;
+}
+
+.container .add-details .heading .heading1
+{
+    width: 415px;
+    height: 45px;
+    font-style: bold;
+    font-weight: 600;
+    font-size: 37px;
+    line-height: 44.78px;
+    color:black;
+}
+
+.container .add-details .heading .heading2
+{
+    width:339px;
+    height:19px;
+    font-weight:400;
+    font-size: 16px;
+    line-height: 19.36px;
+    color:#909295;
+    gap:10px;
+
+}
+
+.container .add-details .details
+{
+    width:387px;
+    height: 452px;
+    gap: 56px;
+
+}
+
+.container .add-details .details form
+{
+    width:387px;
+    height: 452px;
+    gap: 56px;
+    align-items: left;
+    text-align: left;
+}
+
+.container .add-details .details label
+{
+    width:77px;
+    height:17px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16.94px;
+    color: #909295;
+
+    
+}
+
+.container .add-details .details input
+{
+    width:387px;
+    height: 48px;
+    border-radius: 8px;
+    border: 1px solid #D9D9D9;
+    padding: 8px 8px 8px 12px;
+    gap:8px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19.36px;
+    color: #1F2227;
+    justify-content: center;
+    
+
+
+}
+.container .add-details .details input::placeholder
+{
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19.36px;
+    color: #1F2227;
+}
+
+.container .add-details .details button
+{
+    width:407px;
+    height:56px;
+    border-radius: 12px;
+    padding:8px 32px 8px 32px;
+    gap:8px;
+    background:#4C50B5;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 21.78px;
+    color:#FFFFFF;
+    cursor: pointer;
+}
