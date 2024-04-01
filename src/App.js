@@ -10,7 +10,7 @@ function App() {
   return (
     <div className="App">
 
-      <Navbar />
+      {/* <Navbar /> */}
 
       <Routes>
         <Route path="/" element={<AdminPdfUpload3/>} />

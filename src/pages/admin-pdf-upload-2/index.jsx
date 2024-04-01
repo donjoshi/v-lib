@@ -54,6 +54,10 @@ export default function AdminPdfUpload2() {
 
 
     return (
+        <div>
+        <div>
+            <Navbar/>
+            </div> 
 
         <div className="container">
 
@@ -105,6 +109,7 @@ export default function AdminPdfUpload2() {
             </div>
 
 
+        </div>
         </div>
 
     )

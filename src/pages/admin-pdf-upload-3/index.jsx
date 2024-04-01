@@ -2,6 +2,7 @@ import React from "react";
 import { NavLink } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
 import "./styles.css";
+import Navbar from "../../components/navbar";
 
 
 export default function AdminPdfUpload3() {
@@ -10,19 +11,24 @@ export default function AdminPdfUpload3() {
 
 
 
-    function handleOnClick() 
-    {
+    function handleOnClick() {
         navigate("/");
-    
+
     }
 
     return (
-        <div className="container2">
+        <div>
+            <div>
+            <Navbar/>
+            </div> 
+              <div className="container2">
+            
+            
             <div className="success-detail">
 
                 <div className="message">
-                    Book published successfully
-                    <span>Your book is available in the digital library</span>
+                    <span className="message-title">Book published successfully</span>
+                    <span className="message-subtitle">Your book is available in the digital library</span>
                 </div>
                 <div className="book-img">
                     <svg width="152" height="121" viewBox="0 0 152 121" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -52,7 +58,7 @@ export default function AdminPdfUpload3() {
 
             </div>
 
-            <div className="book-details">
+            {/* <div className="book-details">
                 <div className="circle-img">
                     <svg width="85" height="86" viewBox="0 0 85 86" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <rect x="0.185547" y="0.552582" width="84.5205" height="84.5205" rx="42.2603" fill="#D9D9D9" />
@@ -64,13 +70,16 @@ export default function AdminPdfUpload3() {
                     <span>Author</span>
                     <span>Genre</span>
                 </div>
-            </div>
+            </div> */}
 
             <div className="return">
-                <button onClick={handleOnClick}>Back to Home</button>
-                <p>Update details</p>
+                <button className="CTA" onClick={handleOnClick}>Back to Dashboard</button>
+                <button className="CTA-NBG">Update details</button>
             </div>
 
         </div>
+        </div>
+          
+        
     )
 }
