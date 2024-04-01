@@ -1,0 +1,13 @@
+.container2
+{
+    position: relative;
+    width:563px;
+    height: 546.57px;
+    top:171.5px;
+    left:438.5px;
+    gap:35px;
+    direction: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
