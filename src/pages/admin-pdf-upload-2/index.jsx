@@ -1,59 +1,109 @@
 import React from "react";
 import Navbar from "../../components/navbar";
 import './styles.css';
+import PdfUpload from "../../components/pdf-upload";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 
 
+export default function AdminPdfUpload2() {
 
-export default function AdminPdfUpload2()
-{
+    const [formData, setFormData] = useState(new FormData());
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(null);
+    const navigate = useNavigate();
+
+
+    function handleChange(event) {
+        setFormData(new FormData(event.target));
+    }
+
+    async function handleSubmit(event) {
+        event.preventDefault(); // Prevent default form submission
+
+        setLoading(true); // Set loading state
+
+        try {
+            const response = await fetch('your-api-endpoint', {
+                method: 'POST',
+                // Include necessary headers (e.g., Content-Type: multipart/form-data)
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                },
+                body: formData,
+            });
+
+            const data = await response.json();
+            console.log(data);
+            // Handle successful response (redirect, etc.)
+
+            if (data)
+            {
+                navigate("/xyz")
+            }
+
+        } catch (error) {
+            console.error(error);
+            setError('Error submitting form.');
+            setLoading(false); // Reset loading state
+
+        } 
+            
+    }
 
 
     return (
 
         <div className="container">
-            
+
             <div className="add-details">
                 <div className="heading">
                     <div className="heading1">
-                        Add details of the book
+                        Add a new book
                     </div>
                     <div className="heading2">
-                        Add details of your book for adding to library
+                        Uploading books you want to add to library
                     </div>
 
                 </div>
                 <div className="details">
-                    <form >
-                        
+                    <form onSubmit={handleSubmit} onChange={handleChange}>
+
                         <label htmlFor="book-name">Book Name</label>
                         <br />
-                        <input type="text" id="book-name" name="book-name" placeholder="Name of the Book"/>
-                        <br />
-                        
-                        <label htmlFor="author-name">Author Name</label>
-                        <br />
-                        <input type="text" id="author-name" name="author-name" placeholder="Name of the Author"/>
-                        <br />
-                        
-                        <label htmlFor="publish-year">Publish Year</label>
-                        <br />
-                        <input type="text" id="publish-year" name="publish-year" placeholder="Year of the Publishing"/>
-                        <br />
-                        
-                        <label htmlFor="genre">Genre</label>
-                        <br />
-                        <input type="text" id="genre" name="genre" placeholder="Genre"/>
+                        <input type="text" id="book-name" name="book-name" placeholder="Name of the Book" />
                         <br />
 
-                        <button>Next</button>
-                        
+                        <label htmlFor="author-name">Author Name</label>
+                        <br />
+                        <input type="text" id="author-name" name="author-name" placeholder="Name of the Author" />
+                        <br />
+
+                        <label htmlFor="publish-year">Publish Year</label>
+                        <br />
+                        <input type="text" id="publish-year" name="publish-year" placeholder="Year of the Publishing" />
+                        <br />
+
+                        <label htmlFor="genre">Genre</label>
+                        <br />
+                        <input type="text" id="genre" name="genre" placeholder="Genre" />
+                        <br />
+                        <br />
+
+                        <PdfUpload setFormData={setFormData} />
+                        <br />
+
+                        <button type="submit" disabled={loading}>
+                            {loading ? "Uploading...." : "Upload Book"}
+                        </button>
+
                     </form>
 
                 </div>
 
             </div>
-            
+
 
         </div>
 

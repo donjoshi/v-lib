@@ -1,6 +1,7 @@
+
 .container
 {
-    width:auto;
+    width: auto!important;
     height:auto;
     display:flex;
     flex-direction:row;
@@ -63,6 +64,8 @@
     width:387px;
     height: 452px;
     gap: 56px;
+    position: absolute;
+    top :110px;
 
 }
 

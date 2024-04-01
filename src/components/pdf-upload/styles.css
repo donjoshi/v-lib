@@ -1,4 +1,4 @@
-.admin-pdf-upload
+/* .admin-pdf-upload
 {
     width:687px;
     height: 396px;
@@ -11,7 +11,7 @@
     background-color: white;
     background: white;
     justify-content: center;
-}
+} */
 .title
 {
     width: 394px;
@@ -41,28 +41,28 @@
 
 }
 
-.admin-pdf-upload .upload
+.upload
 {
-    width: 607px;
-    height: 228px;
+    width: 482px;
+    height: 164px;
     gap: 8px;
     border-radius: 8px;
     border:0.5px;
-    padding: 40px 24px;
+    padding: 16px 24px 16px 24px;
     background: #F5F5FF;
     justify-content: center;
     align-items: center;
 
 }
 
-.admin-pdf-upload .upload .drag-and-drop
+.upload .drag-and-drop
 {
-    width:417px;
-    height:64px;
+    width:287px;
+    height: 48px;
     border-radius: 8px;
     border:1px;
     border-style: dashed;
-    padding: 16px 48px;
+    padding: 8px 16px 8px 16px;
     gap:12px;
    color: #7073CA;
    font-weight:500;
@@ -74,9 +74,9 @@
 
 }
 
-.admin-pdf-upload .upload .or
+.upload .or
 {
-    width:559px;
+    width:434px;
     height:17px;
     gap:4px;
     text-align: center;
@@ -84,11 +84,11 @@
 
 }
 
-.admin-pdf-upload .upload .upload-button
+.upload .upload-button
 {
     width:274px;
     height:51px;
-    padding: 16px 24px;
+    padding: 16px 24px 16px 24px;
     gap:8px;
     text-decoration: underline;
     font-weight:400;
@@ -97,9 +97,10 @@
     color:#3F45C7;
     justify-content: center;
     margin-inline: auto;
+    align-items: center;
     
 }
-.admin-pdf-upload .upload .upload-button button
+.upload .upload-button button
 {
     font-weight: 400;
     font-size: 16px;
@@ -111,4 +112,14 @@
     cursor: pointer;
     
 
+}
+
+.upload .upload-button .file
+{
+    width :226px;
+    height:19px;
+    font-weight:400;
+    font-size: 16px;
+    line-height: 19.36px;
+    color:#3F45C7;
 }

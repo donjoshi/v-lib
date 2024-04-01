@@ -12,8 +12,8 @@ function App() {
       <Navbar />
 
       <Routes>
-        <Route path="/" element={<AdminPdfUpload/>} />
-        <Route path="/admin-pdf-upload-2" element={<AdminPdfUpload2/>} />
+        <Route path="/" element={<AdminPdfUpload2/>} />
+        {/* <Route path="/admin-pdf-upload-2" element={<AdminPdfUpload2/>} /> */}
       </Routes>
       
     </div>

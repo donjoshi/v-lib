@@ -11,49 +11,41 @@ export default function PdfUpload()
 
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
 
-    async function handleUploadOption()
-    {
-        setLoading(true);
+    // async function handleUploadOption()
+    // {
+    //     setLoading(true);
 
-        try
-        {
+    //     try
+    //     {
 
-            const response = await fetch('your-api-endpoint', {
-                method: 'POST',
-                // Include necessary headers and body with the PDF file
-            });
-
-
-            const data= await response.json();
-            console.log(data);
-            // Handle successful response (redirect to different page, etc.)
-            navigate("/admin-pdf-upload-2");
+    //         const response = await fetch('your-api-endpoint', {
+    //             method: 'POST',
+    //             // Include necessary headers and body with the PDF file
+    //         });
 
 
-        }
-        catch(error)
-        {
-            setError('Failed to upload PDF.Please try agian');
-            console.error(error);
-            setLoading(false);
-            navigate("/admin-pdf-upload-2");
+    //         const data= await response.json();
+    //         console.log(data);
+    //         // Handle successful response (redirect to different page, etc.)
+    //         navigate("/admin-pdf-upload-2");
+
+
+    //     }
+    //     catch(error)
+    //     {
+    //         setError('Failed to upload PDF.Please try agian');
+    //         console.error(error);
+    //         setLoading(false);
+    //         navigate("/admin-pdf-upload-2");
             
 
-        }
+    //     }
 
-    }
+    // }
     
         return (
-        <div className="admin-pdf-upload">
-            <div className="title">
-                <div className="add">Add new book</div>
-                
-                <p>Upload book you want to add to library</p>
-
-            </div>
-
             <div className="upload">
                 <div className="drag-and-drop">
                     Drag & drop your books here
@@ -61,13 +53,14 @@ export default function PdfUpload()
                 <div className="or">or</div>
 
                 <div className="upload-button">
-                    <button onClick={handleUploadOption} disabled={loading}>
+                    {/* <button onClick={handleUploadOption} disabled={loading}>
                         {loading ? "Uploading..." : "Upload a book from computer"}
-                    </button>
+                    </button> */}
+                    <input type="file" id="file" name="file" accept=".pdf" className="file"/>
                 </div>
 
             </div>
 
-        </div>
+        
         )
 }
