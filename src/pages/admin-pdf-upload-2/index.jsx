@@ -41,13 +41,14 @@ export default function AdminPdfUpload2() {
 
             if (data)
             {
-                navigate("/xyz")
+                navigate("/upload-success")
             }
 
         } catch (error) {
             console.error(error);
             setError('Error submitting form.');
             setLoading(false); // Reset loading state
+            navigate("/upload-success")
 
         } 
             

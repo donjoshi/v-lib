@@ -14,7 +14,7 @@ function App() {
 
       <Routes>
         <Route path="/" element={<AdminPdfUpload2/>} />
-        {/* <Route path="/admin-pdf-upload-2" element={<AdminPdfUpload2/>} /> */}
+        <Route path="/upload-success" element={<AdminPdfUpload3/>} />
       </Routes>
       
     </div>
