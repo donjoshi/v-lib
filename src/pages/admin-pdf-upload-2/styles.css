@@ -1,45 +1,33 @@
 
 .container
 {
-    width: auto!important;
-    height:auto;
     display:flex;
-    flex-direction:row;
-    gap:300px;
-    position: absolute;
-    left: 100px;
-    top:190px;
+    margin: 56px auto 64px 5vw;
 }
 
 .container .pdf-display
 {
     width:563px;
     height: 525px;
-    top:181.5px;
-    left:125px;
     background-color: #EEEEEE;
 }
 
 .container .add-details
 {
-    width:415px;
-    height:566px;
-    top:181.5px;
-    left:752px;
-    gap:42px;
+   
 }
 
 .container .add-details .heading
 {
-    width:415px;
-    height: 72px;
+    display: flex;
+    flex-direction: column;
     gap: 8px;
+    margin-bottom: 40px;
+    align-items: flex-start;
 }
 
-.container .add-details .heading .heading1
+.heading-title
 {
-    width: 415px;
-    height: 45px;
     font-style: bold;
     font-weight: 600;
     font-size: 37px;
@@ -47,85 +35,76 @@
     color:black;
 }
 
-.container .add-details .heading .heading2
+.heading-subheading
 {
-    width:339px;
-    height:19px;
+
     font-weight:400;
     font-size: 16px;
     line-height: 19.36px;
     color:#909295;
-    gap:10px;
 
 }
-
 .container .add-details .details
 {
-    width:387px;
-    height: 452px;
-    gap: 56px;
-    position: absolute;
-    top :110px;
 
 }
 
 .container .add-details .details form
 {
-    width:387px;
-    height: 452px;
-    gap: 56px;
     align-items: left;
     text-align: left;
 }
 
 .container .add-details .details label
 {
-    width:77px;
-    height:17px;
     font-weight: 400;
     font-size: 14px;
     line-height: 16.94px;
     color: #909295;
+    margin-bottom:8px!important;
+    display:inline-block;
 
     
 }
 
 .container .add-details .details input
 {
-    width:387px;
     height: 48px;
+    width: 60%;
     border-radius: 8px;
     border: 1px solid #D9D9D9;
-    padding: 8px 8px 8px 12px;
-    gap:8px;
+    padding-left: 12PX;
     font-weight: 500;
     font-size: 16px;
     line-height: 19.36px;
     color: #1F2227;
     justify-content: center;
+    margin-bottom: 16px;
+    display: inline-block;
     
 
 
 }
-.container .add-details .details input::placeholder
+::placeholder
 {
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 19.36px;
     color: #1F2227;
 }
 
 .container .add-details .details button
 {
-    width:407px;
+    width: 100%;
     height:56px;
     border-radius: 12px;
     padding:8px 32px 8px 32px;
-    gap:8px;
-    background:#4C50B5;
+    background-color:#4C50B5;
     font-weight: 600;
     font-size: 18px;
     line-height: 21.78px;
     color:#FFFFFF;
     cursor: pointer;
+    border-style: none;
+    margin-top: 40px;
+} 
+.container .add-details .details .form-textfield{
+    margin-bottom: 40px;
 }

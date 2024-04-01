@@ -59,17 +59,18 @@ export default function AdminPdfUpload2() {
 
             <div className="add-details">
                 <div className="heading">
-                    <div className="heading1">
-                        Add a new book
+                    <div className="heading-title">
+                        Add a new  book
                     </div>
-                    <div className="heading2">
+                    <div className="heading-subheading">
                         Uploading books you want to add to library
                     </div>
 
                 </div>
                 <div className="details">
                     <form onSubmit={handleSubmit} onChange={handleChange}>
-
+                        <div className="form-textfield">
+                       
                         <label htmlFor="book-name">Book Name</label>
                         <br />
                         <input type="text" id="book-name" name="book-name" placeholder="Name of the Book" />
@@ -89,10 +90,9 @@ export default function AdminPdfUpload2() {
                         <br />
                         <input type="text" id="genre" name="genre" placeholder="Genre" />
                         <br />
-                        <br />
-
+                        </div>
+                        
                         <PdfUpload setFormData={setFormData} />
-                        <br />
 
                         <button type="submit" disabled={loading}>
                             {loading ? "Uploading...." : "Upload Book"}
