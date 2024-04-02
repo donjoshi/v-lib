@@ -7,13 +7,14 @@ import { useNavigate } from "react-router-dom";
 
 
 
+
 export default function AdminPdfUpload2() {
 
     const [formData, setFormData] = useState(new FormData());
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
     const navigate = useNavigate();
-    
+
 
 
     function handleChange(event) {
@@ -39,79 +40,79 @@ export default function AdminPdfUpload2() {
             console.log(data);
             // Handle successful response (redirect, etc.)
 
-            if (data)
-            {
+            if (data) {
                 navigate("/upload-success")
             }
 
         } catch (error) {
             console.error(error);
             setError('Error submitting form.');
-            setLoading(false); // Reset loading state
-            navigate("/upload-success")
-
-        } 
+            <h1>Error Occurred</h1>
             
+            setLoading(false); // Reset loading state
+
+        }
+
     }
 
 
     return (
         <div>
-        <div>
-            <Navbar/>
-            </div> 
-
-        <div className="container">
-
-            <div className="add-details">
-                <div className="heading">
-                    <div className="heading-title">
-                        Add a new  book
-                    </div>
-                    <div className="heading-subheading">
-                        Uploading books you want to add to library
-                    </div>
-
-                </div>
-                <div className="details">
-                    <form onSubmit={handleSubmit} onChange={handleChange}>
-                        <div className="form-textfield">
-                       
-                        <label htmlFor="book-name">Book Name</label>
-                        <br />
-                        <input type="text" id="book-name" name="book-name" placeholder="Name of the Book" />
-                        <br />
-
-                        <label htmlFor="author-name">Author Name</label>
-                        <br />
-                        <input type="text" id="author-name" name="author-name" placeholder="Name of the Author" />
-                        <br />
-
-                        <label htmlFor="publish-year">Publish Year</label>
-                        <br />
-                        <input type="text" id="publish-year" name="publish-year" placeholder="Year of the Publishing" />
-                        <br />
-
-                        <label htmlFor="genre">Genre</label>
-                        <br />
-                        <input type="text" id="genre" name="genre" placeholder="Genre" />
-                        <br />
-                        </div>
-                        
-                        <PdfUpload setFormData={setFormData} />
-
-                        <button type="submit" disabled={loading}>
-                            {loading ? "Uploading...." : "Upload Book"}
-                        </button>
-
-                    </form>
-
-                </div>
-
+            <div>
+                <Navbar />
             </div>
 
+            <div className="container">
 
-        </div>
+                <div className="add-details">
+                    <div className="heading">
+                        <div className="heading-title">
+                            Add a new  book
+                        </div>
+                        <div className="heading-subheading">
+                            Uploading books you want to add to library
+                        </div>
+
+                    </div>
+                    <div className="details">
+                        <form onSubmit={handleSubmit} onChange={handleChange}>
+                            <div className="form-textfield">
+
+                                <label htmlFor="book-name">Book Name</label>
+                                <br />
+                                <input type="text" id="book-name" name="book-name" placeholder="Name of the Book" />
+                                <br />
+
+                                <label htmlFor="author-name">Author Name</label>
+                                <br />
+                                <input type="text" id="author-name" name="author-name" placeholder="Name of the Author" />
+                                <br />
+
+                                <label htmlFor="publish-year">Publish Year</label>
+                                <br />
+                                <input type="text" id="publish-year" name="publish-year" placeholder="Year of the Publishing" />
+                                <br />
+
+                                <label htmlFor="genre">Genre</label>
+                                <br />
+                                <input type="text" id="genre" name="genre" placeholder="Genre" />
+                                <br />
+                            </div>
+
+                            <PdfUpload setFormData={setFormData} />
+
+                            <button type="submit" disabled={loading}>
+                                {loading ? "Uploading...." : "Upload Book"}
+                            </button>
+
+                        </form>
+
+                    </div>
+
+                </div>
+
+
+            </div>
         </div>
 
     )
