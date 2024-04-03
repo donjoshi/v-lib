@@ -5,6 +5,7 @@ import Navbar from './components/navbar';
 import AdminPdfUpload from './pages/admin-pdf-upload';
 import AdminPdfUpload2 from './pages/admin-pdf-upload-2';
 import AdminPdfUpload3 from './pages/admin-pdf-upload-3';
+import UserSearch from './pages/user-search';
 
 function App() {
   return (
@@ -13,7 +14,7 @@ function App() {
       {/* <Navbar /> */}
 
       <Routes>
-        <Route path="/" element={<AdminPdfUpload2/>} />
+        <Route path="/" element={<UserSearch/>} />
         <Route path="/upload-success" element={<AdminPdfUpload3/>} />
       </Routes>
       

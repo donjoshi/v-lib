@@ -1,0 +1,9 @@
+
+
+.text-area {
+    width: 648px;
+    height: 86px;
+    resize: none;
+    border: 1px solid #ccc;
+    padding: 5px;
+  }
