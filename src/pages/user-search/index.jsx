@@ -17,41 +17,47 @@ export default function UserSearch() {
 
 
 
-    async function handleOnSubmit(event) 
-    {
+    async function handleOnSubmit(event) {
         event.preventDefault(); // Prevent default form submission
 
         setLoading(true); // Set loading state
 
         const formData = new FormData();
-        
-        try
-        {
-            formData.append('text_area', text_area);
+
+        try {
+            formData.append('query', text_area);
             // formData.append('genre', genre);
 
 
             var requestOptions1 = {
                 method: 'POST',
-                body: formData, 
+                body: formData,
                 headers: {
                     'Origin': 'http://192.168.1.75:8000' // Replace with your React app's origin
-                  },
+                },
                 // redirect: 'follow'
             };
 
-            
-
-            const response = await fetch("api", requestOptions1)
 
 
-            const data = await response.text();
+            const response = await fetch("http://192.168.1.75:8000/findBook", requestOptions1)
+
+
+            const data = await response.json();
             // navigate("/upload-success")
             console.log(data);
+
+            console.log(data['result'][0][0]);
+
+            navigate("/results", {
+                state: {
+                    apiResponse: data,
+                    textAreaValue: text_area,
+                },
+            });
         }
 
-        catch (error)
-        {
+        catch (error) {
             console.error(error);
             setError('Error submitting form.');
             <h1>Error Occurred</h1>
@@ -60,7 +66,7 @@ export default function UserSearch() {
 
         }
 
-    
+
     }
 
 
@@ -80,11 +86,11 @@ export default function UserSearch() {
                     <form onSubmit={handleOnSubmit}>
                         <div className="search-space-1">
                             <div className="content">
-                                <textarea className="text-area" placeholder="Paste your content" onChange={e=>setText_area(e.target.value)}></textarea>
+                                <textarea className="text-area" placeholder="Paste your content" onChange={e => setText_area(e.target.value)}></textarea>
                             </div>
                             <div className="genre">
                                 <label htmlFor="genre">Genre</label>
-                                <input type="text" placeholder="Type genres you are searching for(optional)" onChange={e=>setGenre(e.target.value)}/>
+                                <input type="text" placeholder="Type genres you are searching for(optional)" onChange={e => setGenre(e.target.value)} />
                             </div>
 
                             <div className="search-space-2">

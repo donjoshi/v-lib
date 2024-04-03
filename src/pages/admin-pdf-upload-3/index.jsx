@@ -12,7 +12,7 @@ export default function AdminPdfUpload3() {
 
 
     function handleOnClick() {
-        navigate("/");
+        navigate("/admin");
 
     }
 
