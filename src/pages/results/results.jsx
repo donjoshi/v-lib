@@ -21,7 +21,7 @@ export default function Results()
 
             <div className="container6">
                 <div className="filter">
-                    filter
+                    <span className="Filter">filter</span>
                 </div>
 
                 <div className="result-part">
