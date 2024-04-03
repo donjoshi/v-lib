@@ -6,13 +6,14 @@ import "./results.css";
 
 
 
-export default function Results() 
-{
+export default function Results() {
 
     const location = useLocation();
 
-    const {apiResponse,textAreaValue} = location.state || {};
-    
+    const { apiResponse, textAreaValue } = location.state || {};
+
+    console.log(apiResponse);
+
     return (
         <div className="main-container6">
             <div className="nav">
@@ -35,12 +36,31 @@ export default function Results()
                     <div className="result-show">
                         <div className="flow">
                             results of the books
-                            {apiResponse['result'][1][0]}
+                            <div className="display">
+                                {apiResponse && apiResponse.result && ( // Check for both apiResponse and result
+                                    <ul>
+                                        {/* Loop through each item in apiResponse.result */}
+                                        {apiResponse.result.map((item, index) => (
+                                            <li key={index}>
+                                                {/* Access and display properties of each item */}
+                                                <p>Title: {item[0] }</p>
+                                                <p>Author: {item[1]}</p>
+                                                <p>Type:{item[3]}</p>
+                                                <p>Year: {item[2]}</p>
+                                                {/* <p>
+                                                    Download Link:{" "}
+                                                    <a href={item[4]}>{item[0] || item[1]}</a>
+                                                </p> */}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                )}
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            
+
         </div>
     );
 }
