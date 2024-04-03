@@ -100,7 +100,7 @@ export default function AdminPdfUpload2() {
 
 
     return (
-        <div>
+        <div className="main-container">
             <div>
                 <Navbar />
             </div>
@@ -151,7 +151,7 @@ export default function AdminPdfUpload2() {
 
                             <div className="upload">
                                 <div className="drag-and-drop">
-                                    Drag & drop your books here
+                                    <span>Drag & drop your books here</span>
                                 </div>
                                 <div className="or">or</div>
 
