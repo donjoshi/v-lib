@@ -8,8 +8,8 @@ export default function NavbarMain()
 {
 
     return <div className="navbar-main">
-        
-        <div className="container5">
+        <div className="logo"></div>
+        <div className="nav-items">
             <div className="one">
                 <NavLink to ={'/journals'}>
                     Journals
@@ -17,14 +17,14 @@ export default function NavbarMain()
             </div>
 
             <div className="two">
-                Books
+                <span>Books</span>
             </div>
 
             <div className="three">
-                How it works
+                <span>How it works</span>
             </div>
 
-            <div className="four">
+            <div className="login">
                 <NavLink to={'/admin'}>Login</NavLink>
             </div>
         </div>

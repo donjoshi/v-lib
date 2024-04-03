@@ -75,12 +75,12 @@ export default function UserSearch() {
     return (
 
         <div className="main-container">
-            <div className="navbar">
+            <div>
                 <NavbarMain />
             </div>
 
             <div className="container4">
-                <div className="text">Get contextual results</div>
+                <h1 className="Hero-header">Get contextual results</h1>
 
                 <div className="search-space">
                     <form onSubmit={handleOnSubmit}>

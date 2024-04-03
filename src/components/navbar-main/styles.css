@@ -1,6 +1,17 @@
 .navbar-main {
-    width: 100vw;
-    height: 103.78px;
-    font-weight: bold;
-    background: #D3D2FF;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 32px 5vw;
+}
+.nav-items{
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+}
+.login{
+    margin-left: 24px;
 }

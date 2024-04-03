@@ -7,3 +7,8 @@
     border: 1px solid #ccc;
     padding: 5px;
   }
+  .Hero-header{
+    font-size: 49px ;
+    font-weight: 500;
+    letter-spacing: -2px;
+  }
