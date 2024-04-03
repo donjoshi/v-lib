@@ -1,7 +1,53 @@
-.navbar
-{
+.navbar {
     width: 100vw;
     height: 103.78px;
     font-weight: bold;
-    background:#D3D2FF;
+    background: #D3D2FF;
+}
+
+.main {
+    float: right;
+    display: flex;
+    flex-direction: row;
+    padding: 8px 32px 8px 32px;
+    gap: 80px;
+    text-decoration: none;
+
+
+    position: relative;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+
+}
+
+.nav-dashboard {
+    width: 81px;
+    height: 19px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19.36px;
+    letter-spacing: -2%;
+    color: #27374D;
+    text-decoration: none;
+
+}
+
+.nav-logout {
+    width: 53px;
+    height: 19px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19.36px;
+    letter-spacing: -2%;
+    color: #A01D2D;
+    text-decoration: none;
+
+}
+
+.admin-logo
+{
+    width:97px;
+    height: 40px;
+    gap:9px;
 }
