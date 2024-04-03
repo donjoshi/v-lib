@@ -25,7 +25,7 @@ export default function NavbarMain()
             </div>
 
             <div className="four">
-                <NavLink to={'/'}>Login</NavLink>
+                <NavLink to={'/admin'}>Login</NavLink>
             </div>
         </div>
     </div>
