@@ -86,11 +86,12 @@ export default function UserSearch() {
                     <form onSubmit={handleOnSubmit}>
                         <div className="search-space-1">
                             <div className="content">
+                                
                                 <textarea className="text-area" placeholder="Paste your content" onChange={e => setText_area(e.target.value)}></textarea>
                             </div>
                             <div className="genre">
                                 <label htmlFor="genre">Genre</label>
-                                <input type="text" placeholder="Type genres you are searching for(optional)" onChange={e => setGenre(e.target.value)} />
+                                <input className="genre-input" type="text" placeholder="Type genres you are searching for(optional)" onChange={e => setGenre(e.target.value)} />
                             </div>
 
                             <div className="search-space-2">

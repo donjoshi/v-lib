@@ -20,33 +20,33 @@ export default function Results() {
                 <NavbarMain />
             </div>
 
-            <div className="container6">
+            <div className="container-result">
                 <div className="filter">
-                    <span className="Filter">filter</span>
+                    <span className="Filter-Header">Filter</span>
                 </div>
 
                 <div className="result-part">
                     <div className="search-field">
-                        <textarea name="query" id="" cols="50" rows="5" value={textAreaValue} ></textarea>
+                        <textarea className="text-area" name="query" id="" cols="50" rows="5" value={textAreaValue} ></textarea>
                         <div className="genre">
                             <label htmlFor="genre">Genre</label>
                         </div>
                     </div>
 
                     <div className="result-show">
-                        <div className="flow">
-                            results of the books
+                        <div className="results">
+                            <span className="results-header">Results</span>
                             <div className="display">
                                 {apiResponse && apiResponse.result && ( // Check for both apiResponse and result
-                                    <ul>
+                                    <ul className="search-result">
                                         {/* Loop through each item in apiResponse.result */}
                                         {apiResponse.result.map((item, index) => (
                                             <li key={index}>
                                                 {/* Access and display properties of each item */}
-                                                <p>Title: {item[0] }</p>
-                                                <p>Author: {item[1]}</p>
-                                                <p>Type:{item[3]}</p>
-                                                <p>Year: {item[2]}</p>
+                                                <span className="Title-name">{item[0] }</span>
+                                                <span className="Author-name">{item[1]}</span>
+                                                <span className="Doc-type">{item[3]}</span>
+                                                <span className="year-of-publish">{item[2]}</span>
                                                 {/* <p>
                                                     Download Link:{" "}
                                                     <a href={item[4]}>{item[0] || item[1]}</a>
