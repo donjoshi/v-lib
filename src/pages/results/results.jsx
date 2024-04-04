@@ -3,14 +3,19 @@ import NavbarMain from "../../components/navbar-main";
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import "./results.css";
+import { useState } from "react";
 
 
 
 export default function Results() {
 
+    
+
     const location = useLocation();
 
     const { apiResponse, textAreaValue } = location.state || {};
+    
+    const [text_area, setText_area] = useState(textAreaValue);
 
     console.log(apiResponse);
 
