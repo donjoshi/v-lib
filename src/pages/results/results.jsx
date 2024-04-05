@@ -10,21 +10,15 @@ import { navigate } from "react-router-dom";
 
 export default function Results() {
 
-
-
     const location = useLocation();
 
     const { apiResponse, textAreaValue } = location.state || {};
 
-    const [text_area, setText_area] = useState(textAreaValue || "");
-
-
+    const [text_area, setText_area] = useState("");
     const [isFocused, setIsFocused] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
 
     const navigate = useNavigate();
-
-
 
     async function handleButtonClick(event) {
         event.preventDefault(); // Prevent default form submission
@@ -44,15 +38,12 @@ export default function Results() {
                 method: 'POST',
                 body: formData,
                 headers: {
-                    'Origin': 'http://192.168.1.75:8000' // Replace with your React app's origin
+                    'Origin': 'http://192.168.138.176:8000' // Replace with your React app's origin
                 },
                 // redirect: 'follow'
             };
 
-
-
-            const response = await fetch("http://192.168.1.75:8000/findBook", requestOptions1)
-
+            const response = await fetch("http://192.168.138.176:8000/findBook", requestOptions1)
 
             const data = await response.json();
             // navigate("/upload-success")
@@ -70,9 +61,7 @@ export default function Results() {
         catch (error) {
             console.error(error);
             <h1>Error Occurred</h1>
-
             setIsLoading(false); // Reset loading state
-
         }
     }
 
@@ -89,35 +78,38 @@ export default function Results() {
                 </div>
 
                 <div className="result-part">
-                    
-                        <div className="search-field">
-                            <textarea className={`text-area ${isFocused ? "focused" : ""}`}
-                                name="query" id="" cols="50" rows="5" onChange={e => setText_area(e.target.value)}
 
-                                 onClick={() => setIsFocused(true)}
-                                onBlur={() => setIsFocused(false)}
+                    <div className="search-field">
+                        <textarea className={`text-area ${isFocused ? "focused" : ""}`}
+                            name="query" id="" cols="50" rows="5" onChange={e => setText_area(e.target.value)}
 
-                            >
+                            onClick={() => setIsFocused(true)}
+                        //onBlur={() => setIsFocused(false)}
 
-                                {textAreaValue}
-                            </textarea>
+                        >
 
-                            {isFocused && (
-                                <div className="button-container">
-                                    <button type="button" disabled={isLoading} onClick={handleButtonClick}>
-                                        {isLoading ? "Searching..." : "Search"}
-                                    </button>
-                                </div>
-                            )}
-                    
-                    
+                            {textAreaValue}
 
 
-                            <div className="genre">
-                                <label htmlFor="genre">Genre</label>
+
+                        </textarea>
+
+                        {isFocused && (
+                            <div className="button-container">
+                                <button type="submit" disabled={isLoading} onClick={handleButtonClick}>
+                                    {isLoading ? "Searching...." : "Search"}
+                                </button>
                             </div>
+                        )}
+
+
+
+
+                        <div className="genre">
+                            <label htmlFor="genre">Genre</label>
                         </div>
-                    
+                    </div>
+
 
                     <div className="result-show">
                         <div className="results">
