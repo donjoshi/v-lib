@@ -3,12 +3,11 @@
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-    margin-top: 24px;
     gap: 24px;
     width: 100%;
 }
 .filter{
-    padding: 96px 48px;
+    padding: 24px 32px;
     display: flex;
     align-items: flex-start;
     width: 20vw;
@@ -19,6 +18,7 @@
     flex-direction: column;
     width: 100%;
     align-items: flex-start;
+    padding: 24px 32px;
 
 }
 .search-field{
@@ -75,20 +75,32 @@ color: #1F24B0;
     flex-direction: column;
     gap: 24px;
 }
-.Filter-Header{
-    font-size: 16px;
-    font-weight: 500;
-}
-.results{
-    margin-top: 40px;
-}
 
-.searchbar{
-    width: 648px;
+/* .results{
+    margin-top: 40px;
+} */
+.search-div{
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    align-items: center;
+    padding: 16px 0 32px 0;
+    border-bottom: 1px solid #B0B1B8;
 }
-.searchbutton{
-    
+.searchbar{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 0 auto;
+    gap: 24px;
+}
+/* Filter */
+.filter{
+    display: flex;
+    width: 25vw;
+    height: 100vh;
+    border-right:1px solid #B0B1B8 ;
+
+}
+.Filter-Header{
+    font-size: 18px;
+    font-weight: 500;
 }

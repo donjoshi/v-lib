@@ -71,14 +71,7 @@ export default function Results() {
             <div className="nav">
                 <NavbarMain />
             </div>
-
-            <div className="container-result">
-                <div className="filter">
-                    <span className="Filter-Header">Filter</span>
-                </div>
-
-                <div className="result-part">
-                    <div className="searchbar">
+            <div className="search-div"><div className="searchbar">
                     <div className="content">
                     <svg className="searchIcon" width="33" height="32" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg">
 <rect x="0.328613" width="32" height="32" rx="16" fill="#6C70BF"/>
@@ -124,9 +117,15 @@ export default function Results() {
 
                                     {loading ? "Search" : "Search"}
                                 </button>
-                            </div>
-                    </div>
+                        </div>
+                    </div></div>
+            <div className="container-result">
+                <div className="filter">
+                    <span className="Filter-Header">Filter</span>
+                    <div className="filter-content"></div>
+                </div>
 
+                <div className="result-part">
 
                     <div className="result-show">
                         <div className="results">
