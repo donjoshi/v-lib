@@ -1,6 +1,7 @@
 
 .content{
   height: fit-content;
+  width: 648px;
   resize: none;
   display: flex;
   flex-direction: row;
@@ -67,11 +68,11 @@ box-shadow:0 0 4px #2C35FF ;
     gap: 8px;
     border: none;
     border-radius: 100px;
+    cursor: pointer;
   }
   .search-space-2{
     display: flex;
     justify-content: center;
-    margin-top: 24px;
   }
   .genre{
     margin-top: 16px;
@@ -90,6 +91,7 @@ box-shadow:0 0 4px #2C35FF ;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    gap: 12px;
   }
   .genre-input{
     border: none;
