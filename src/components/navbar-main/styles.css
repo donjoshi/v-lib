@@ -12,6 +12,7 @@
     font-size: 16px;
     font-weight: 500;
 }
-.login{
+a{
     margin-left: 24px;
+    text-decoration: none;
 }
