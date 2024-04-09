@@ -138,7 +138,7 @@ export default function AdminPdfUpload2() {
 
                                 <label htmlFor="type-of-doc">Type Of Doc</label>
                                 <br />
-                                <input type="text" id="type-of-doc" name="type-of-doc" placeholder="Type of doc" onChange={e=>setType(e.target.value)}/>
+                                <input type="drop-down" id="type-of-doc" name="type-of-doc" placeholder="Type of doc" onChange={e=>setType(e.target.value)}/>
                                 <br />
 
                                 <label htmlFor="genre">Genre</label>
