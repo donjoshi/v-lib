@@ -38,12 +38,12 @@ export default function Results() {
                 method: 'POST',
                 body: formData,
                 headers: {
-                    'Origin': 'http://192.168.138.176:8000' // Replace with your React app's origin
+                    'Origin': 'http://192.168.1.75:8000' // Replace with your React app's origin
                 },
                 // redirect: 'follow'
             };
 
-            const response = await fetch("http://192.168.138.176:8000/findBook", requestOptions1)
+            const response = await fetch("http://192.168.1.75:8000/findBook/querySearch", requestOptions1)
 
             const data = await response.json();
             // navigate("/upload-success")
@@ -61,6 +61,9 @@ export default function Results() {
         catch (error) {
             console.error(error);
             <h1>Error Occurred</h1>
+            // setLoading(false); // Reset loading state
+        }
+        finally {
             setLoading(false); // Reset loading state
         }
     }
@@ -72,28 +75,28 @@ export default function Results() {
                 <NavbarMain />
             </div>
             <div className="search-div"><div className="searchbar">
-                    <div className="content">
+                <div className="content">
                     <svg className="searchIcon" width="33" height="32" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect x="0.328613" width="32" height="32" rx="16" fill="#6C70BF"/>
-<path d="M15.3286 22C19.1946 22 22.3286 18.866 22.3286 15C22.3286 11.134 19.1946 8 15.3286 8C11.4626 8 8.32861 11.134 8.32861 15C8.32861 18.866 11.4626 22 15.3286 22Z" stroke="white" stroke-width="2"/>
-<path d="M24.3286 24L21.3286 21" stroke="white" stroke-width="2" stroke-linecap="round"/>
-</svg>
-                        <textarea className="text-area"
-                            name="query" id="" onChange={e => setText_area(e.target.value)}
+                        <rect x="0.328613" width="32" height="32" rx="16" fill="#6C70BF" />
+                        <path d="M15.3286 22C19.1946 22 22.3286 18.866 22.3286 15C22.3286 11.134 19.1946 8 15.3286 8C11.4626 8 8.32861 11.134 8.32861 15C8.32861 18.866 11.4626 22 15.3286 22Z" stroke="white" stroke-width="2" />
+                        <path d="M24.3286 24L21.3286 21" stroke="white" stroke-width="2" stroke-linecap="round" />
+                    </svg>
+                    <textarea className="text-area"
+                        name="query" id="" onChange={e => setText_area(e.target.value)}
 
-                            onClick={() => setIsFocused(true)}
-                        //onBlur={() => setIsFocused(false)}
+                        onClick={() => setIsFocused(true)}
+                    //onBlur={() => setIsFocused(false)}
 
-                        >
+                    >
 
-                            {textAreaValue}
-
-
-
-                        </textarea>
+                        {textAreaValue}
 
 
-                        {/* <div className="button-container">
+
+                    </textarea>
+
+
+                    {/* <div className="button-container">
                             <button type="submit" disabled={isLoading} onClick={handleButtonClick}>
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M11 18C14.866 18 18 14.866 18 11C18 7.13401 14.866 4 11 4C7.13401 4 4 7.13401 4 11C4 14.866 7.13401 18 11 18Z" stroke="white" stroke-width="2" />
@@ -108,17 +111,19 @@ export default function Results() {
 
 
 
-                        {/* <div className="genre">
+                    {/* <div className="genre">
                             <label htmlFor="genre">Genre</label>
                         </div> */}
-                    </div>
-                    <div className="search-space-2">
-                                <button type="submit" disabled={loading}>
+                </div>
+                <div className="search-space-2">
+                    <button type="submit" disabled={loading} onClick={handleButtonClick}>
 
-                                    {loading ? "Search" : "Search"}
-                                </button>
-                        </div>
-                    </div></div>
+                        {loading ? "Searching" : "Search"}
+                    </button>
+                </div>
+            </div>
+            </div>
+
             <div className="container-result">
                 <div className="filter">
                     <span className="Filter-Header">Filter</span>

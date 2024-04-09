@@ -9,7 +9,7 @@ export default function Navbar() {
     return <div className="navbar">
         <div className="main">
             <div className="dash-board">
-                <NavLink to="/dash-board" className="nav-dashboard">Dashboard</NavLink>
+                <NavLink to="/dashboard" className="nav-dashboard">Dashboard</NavLink>
             </div>
 
             <div className="logout">
