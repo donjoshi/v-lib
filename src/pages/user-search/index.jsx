@@ -33,14 +33,14 @@ export default function UserSearch() {
                 method: 'POST',
                 body: formData,
                 headers: {
-                    'Origin': 'http://192.168.1.75:8000' // Replace with your React app's origin
+                    'Origin': 'http://192.168.138.176:8000' // Replace with your React app's origin
                 },
                 // redirect: 'follow'
             };
 
 
 
-            const response = await fetch("http://192.168.1.75:8000/findBook", requestOptions1)
+            const response = await fetch("http://192.168.138.176:8000/findBook", requestOptions1)
 
 
             const data = await response.json();

@@ -7,6 +7,8 @@ import AdminPdfUpload2 from "./pages/admin-pdf-upload-2";
 import AdminPdfUpload3 from "./pages/admin-pdf-upload-3";
 import UserSearch from "./pages/user-search";
 import Results from "./pages/results/results";
+import Dashboard from "./pages/dashboard/dashboard";
+import PdfView from "./pages/pdf-view/view";
 
 
 function App() {
@@ -20,6 +22,8 @@ function App() {
         <Route path="/admin" element={<AdminPdfUpload2 />} />
         <Route path="/upload-success" element={<AdminPdfUpload3 />} />
         <Route path="/results" element={<Results />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/view-pdf" element={<PdfView />} />
         
       </Routes>
     </div>
