@@ -16,7 +16,7 @@ export default function Results() {
 
     const [text_area, setText_area] = useState("");
     const [isFocused, setIsFocused] = useState(false);
-    const [isLoading, setIsLoading] = useState(false);
+    const [loading, setLoading] = useState(false);
 
     const navigate = useNavigate();
 
@@ -25,7 +25,7 @@ export default function Results() {
 
         console.log("entered the button click function");
 
-        setIsLoading(true); // Set loading state
+        setLoading(true); // Set loading state
 
         const formData = new FormData();
 
@@ -61,7 +61,7 @@ export default function Results() {
         catch (error) {
             console.error(error);
             <h1>Error Occurred</h1>
-            setIsLoading(false); // Reset loading state
+            setLoading(false); // Reset loading state
         }
     }
 
@@ -78,10 +78,15 @@ export default function Results() {
                 </div>
 
                 <div className="result-part">
-
-                    <div className="search-field">
-                        <textarea className={`text-area ${isFocused ? "focused" : ""}`}
-                            name="query" id="" cols="50" rows="5" onChange={e => setText_area(e.target.value)}
+                    <div className="searchbar">
+                    <div className="content">
+                    <svg className="searchIcon" width="33" height="32" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="0.328613" width="32" height="32" rx="16" fill="#6C70BF"/>
+<path d="M15.3286 22C19.1946 22 22.3286 18.866 22.3286 15C22.3286 11.134 19.1946 8 15.3286 8C11.4626 8 8.32861 11.134 8.32861 15C8.32861 18.866 11.4626 22 15.3286 22Z" stroke="white" stroke-width="2"/>
+<path d="M24.3286 24L21.3286 21" stroke="white" stroke-width="2" stroke-linecap="round"/>
+</svg>
+                        <textarea className="text-area"
+                            name="query" id="" onChange={e => setText_area(e.target.value)}
 
                             onClick={() => setIsFocused(true)}
                         //onBlur={() => setIsFocused(false)}
@@ -95,7 +100,7 @@ export default function Results() {
                         </textarea>
 
 
-                        <div className="button-container">
+                        {/* <div className="button-container">
                             <button type="submit" disabled={isLoading} onClick={handleButtonClick}>
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M11 18C14.866 18 18 14.866 18 11C18 7.13401 14.866 4 11 4C7.13401 4 4 7.13401 4 11C4 14.866 7.13401 18 11 18Z" stroke="white" stroke-width="2" />
@@ -104,7 +109,7 @@ export default function Results() {
 
                                 {isLoading ? "Searching...." : "Search"}
                             </button>
-                        </div>
+                        </div> */}
 
 
 
@@ -113,6 +118,13 @@ export default function Results() {
                         {/* <div className="genre">
                             <label htmlFor="genre">Genre</label>
                         </div> */}
+                    </div>
+                    <div className="search-space-2">
+                                <button type="submit" disabled={loading}>
+
+                                    {loading ? "Search" : "Search"}
+                                </button>
+                            </div>
                     </div>
 
 
