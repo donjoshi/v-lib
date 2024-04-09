@@ -80,28 +80,29 @@ export default function UserSearch() {
             </div>
 
             <div className="container4">
-                <h1 className="Hero-header">Get contextual results</h1>
+                <h1 className="Hero-header">No more keywords.<br></br>
+Search whatever you like.</h1>
 
                 <div className="search-space">
                     <form onSubmit={handleOnSubmit}>
                         <div className="search-space-1">
                             <div className="content">
-                                
-                                <textarea className="text-area" placeholder="Paste your content" onChange={e => setText_area(e.target.value)}></textarea>
+                            <svg className="searchIcon" width="33" height="32" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="0.328613" width="32" height="32" rx="16" fill="#6C70BF"/>
+<path d="M15.3286 22C19.1946 22 22.3286 18.866 22.3286 15C22.3286 11.134 19.1946 8 15.3286 8C11.4626 8 8.32861 11.134 8.32861 15C8.32861 18.866 11.4626 22 15.3286 22Z" stroke="white" stroke-width="2"/>
+<path d="M24.3286 24L21.3286 21" stroke="white" stroke-width="2" stroke-linecap="round"/>
+</svg>
+                                <textarea className="text-area" placeholder="I want to know more about Artificial Intelligence..." onChange={e => setText_area(e.target.value)}></textarea>
                             </div>
-                            <div className="genre">
+                            {/* <div className="genre">
                                 <label htmlFor="genre">Genre</label>
                                 <input className="genre-input" type="text" placeholder="Type genres you are searching for(optional)" onChange={e => setGenre(e.target.value)} />
-                            </div>
+                            </div> */}
 
                             <div className="search-space-2">
                                 <button type="submit" disabled={loading}>
-                                <svg className="search-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M11 18C14.866 18 18 14.866 18 11C18 7.13401 14.866 4 11 4C7.13401 4 4 7.13401 4 11C4 14.866 7.13401 18 11 18Z" stroke="white" stroke-width="2"/>
-<path d="M20 20L17 17" stroke="white" stroke-width="2" stroke-linecap="round"/>
-</svg>
 
-                                    {loading ? "Searching...." : "Search"}
+                                    {loading ? "Search" : "Search"}
                                 </button>
                             </div>
                         </div>

@@ -32,7 +32,7 @@ export default function Results() {
 
                 <div className="result-part">
                     <div className="search-field">
-                        <textarea className="text-area" name="query" id="" cols="50" rows="5" value={textAreaValue} ></textarea>
+                        <textarea className="text-area textarea-res" name="query" id="" cols="50" rows="5" value={textAreaValue} ></textarea>
                         <div className="genre">
                             <label htmlFor="genre">Genre</label>
                         </div>

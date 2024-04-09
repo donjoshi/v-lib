@@ -1,13 +1,28 @@
+
+.content{
+  height: fit-content;
+  resize: none;
+  display: flex;
+  flex-direction: row;
+  padding: 12px 20px;
+gap: 8px;
+border: solid 1px #424587;
+border-radius: 100px;
+box-shadow:0 0 4px #2C35FF ;
+}
 .text-area {
   width: 100%;
-    height: 40px;
-    max-height: 86px;
-    resize: none;
     
     text-overflow: ellipsis;
-    overflow:clip;
+    overflow:clip ;
     font-size: 16px;
     display: block;
+    outline: none;
+    border: none;
+    max-height: fit-content;
+    padding-top: 4px;
+    font-family: 'Inter',sans-serif;
+    font-weight: 500;
   }
   .search-bar{
     display: flex;
@@ -20,15 +35,20 @@
     font-size: 16px;
     color: #888990;
     font-family: "Inter",sans-serif;
+    letter-spacing: -.5px;
   }
   .Hero-header{
     font-size: 49px ;
     font-weight: 500;
     letter-spacing: -2px;
+    line-height: 59px;
+    margin: 0;
   }
   .container4{
     display: flex;
     flex-direction: column;
+    margin-top: 90px;
+    gap: 40px;
   }
   .search-space{
     display: flex;
@@ -46,7 +66,7 @@
     align-items: center;
     gap: 8px;
     border: none;
-    border-radius: 4px;
+    border-radius: 100px;
   }
   .search-space-2{
     display: flex;
@@ -70,7 +90,6 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-top: 24px;
   }
   .genre-input{
     border: none;
