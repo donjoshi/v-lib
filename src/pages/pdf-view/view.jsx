@@ -60,24 +60,24 @@ export default function PdfView() {
 
         // Clean up Blob URL when component unmounts
         return () => {
-            if (blobURL) {
-                URL.revokeObjectURL(blobURL);
+            if (pdfBlobUrl) {
+                URL.revokeObjectURL(pdfBlobUrl);
             }
         };
     }, [pdfData]);
 
     useEffect(() => {
-        if (blobURL && pdfViewerRef.current) {
+        if (pdfBlobUrl && pdfViewerRef.current) {
             // Render PDF using Viewer.js
             const viewer = new Viewer(pdfViewerRef.current, {
-                url: blobURL,
+                url: pdfBlobUrl,
             });
 
             return () => {
                 viewer.destroy();
             };
         }
-    }, [blobURL]);
+    }, [pdfBlobUrl]);
 
 
     // useEffect(() => {
@@ -167,8 +167,8 @@ export default function PdfView() {
                         </div>
                     )} */}
 
-                    {blobURL ? (
-                        <embed src={blobURL} type="application/pdf" width="100%" height="600px"/>
+                    {pdfBlobUrl ? (
+                        <embed src={pdfBlobUrl} type="application/pdf" width="60%" height="600px"/>
                     ) : (
                         <p>PDF data is missing.</p>
                     )}
