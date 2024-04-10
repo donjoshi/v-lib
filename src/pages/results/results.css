@@ -104,3 +104,6 @@ color: #1F24B0;
     font-size: 18px;
     font-weight: 500;
 }
+.bookimage{
+  display: flex;
+}
