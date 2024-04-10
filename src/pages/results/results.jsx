@@ -47,7 +47,7 @@ export default function Results() {
 
             const data = await response.json();
             // navigate("/upload-success")
-
+            console.log(data);
             console.log(data['result'][0][0]);
 
             navigate("/results", {
@@ -65,6 +65,67 @@ export default function Results() {
         }
         finally {
             setLoading(false); // Reset loading state
+        }
+    }
+
+
+    async function handleTitleClick(bookId) { // Use bookId instead of location
+        try {
+            console.log(bookId);
+            // const response = await fetch(`http://192.168.1.75:8000/getBookPdf/${bookId}`); // Construct API endpoint for PDF by ID
+            // const pdfData = await response.blob(); // Assuming the API returns a PDF blob
+    
+            const formData = new FormData();
+            formData.append('id', bookId);
+            
+            var requestOptions = {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Origin': 'http://192.168.1.75:8000', // Replace with your React app's origin
+                    // "Content-Type": "application/json",
+                },
+                // redirect: 'follow'
+            };
+
+            const response = await fetch("http://192.168.1.75:8000/findBook/getPDF", requestOptions)
+
+            if (!response.ok) {
+                throw new Error("Failed to fetch PDF"); // Handle errors gracefully
+            }
+            const pdfData = await response.blob();
+
+            console.log(pdfData);
+
+            const reader = new FileReader();
+            reader.readAsDataURL(pdfData); // Read the PDF data as a data URL
+
+            
+            reader.onload = function (event) {
+                const pdfDataURL = event.target.result; // Get the data URL
+                console.log(pdfDataURL)
+
+
+                navigate("/view-pdf", {
+                    state: {
+                        pdfDataURL,
+                        bookDetails: {
+                            id: bookId, // Include book ID in details
+                            title: apiResponse.result[bookId][1], // Assuming title is at index 1
+                            author: apiResponse.result[bookId][2], // Assuming author is at index 2
+                            // ... Add other details as needed
+                        },
+                    },
+                });
+            }
+
+            reader.onerror = function (error) {
+                console.error("Error reading PDF:", error);
+                // Handle errors gracefully
+            };
+        } catch (error) {
+            console.error(error);
+            // Handle errors, e.g., display an error message
         }
     }
 
@@ -142,14 +203,11 @@ export default function Results() {
                                         {apiResponse.result.map((item, index) => (
                                             <li key={index}>
                                                 {/* Access and display properties of each item */}
-                                                <span className="Title-name">{item[0]}</span>
-                                                <span className="Author-name">{item[1]}</span>
-                                                <span className="Doc-type">{item[3]}</span>
-                                                <span className="year-of-publish">{item[2]}</span>
-                                                {/* <p>
-                                                    Download Link:{" "}
-                                                    <a href={item[4]}>{item[0] || item[1]}</a>
-                                                </p> */}
+                                                <span className="Title-name" onClick={() => handleTitleClick(item[0])}>{item[1]}</span>
+                                                <span className="Author-name">{item[2]}</span>
+                                                <span className="Doc-type">{item[4]}</span>
+                                                <span className="year-of-publish">{item[3]}</span>
+
                                             </li>
                                         ))}
                                     </ul>
