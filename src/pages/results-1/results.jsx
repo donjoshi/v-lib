@@ -5,8 +5,6 @@ import { useLocation } from "react-router-dom";
 import "./results.css";
 import { useState } from "react";
 import { navigate } from "react-router-dom";
-import { Document, Page } from '@react-pdf/renderer';
-
 
 
 
@@ -100,9 +98,6 @@ export default function Results() {
 
             
 
-
-            
-
             const reader = new FileReader();
             reader.readAsDataURL(pdfData); // Read the PDF data as a data URL
 
@@ -117,7 +112,7 @@ export default function Results() {
                 navigate("/view-pdf", {
                     state: {
                         pdfDataURL,
-                        pdfData,
+                        pdf_url,
                         bookDetails: {
                             id: bookId, // Include book ID in details
                             // title: apiResponse.result[bookId][1], // Assuming title is at index 1
