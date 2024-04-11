@@ -21,6 +21,12 @@
     padding: 24px 32px;
 
 }
+.result-show{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    
+}
 .search-field{
     width: 75%;
     display: flex;
@@ -59,21 +65,27 @@ textarea:focus{
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 8px 16px;
     gap: 8px;
+    text-align: left;
+    width: 100%;
 
 }
 .Title-name{
-font-size: 21px;
+    display: inline-block;
+font-size: 18px;
 font-weight: 500;
 color: #1F24B0;
+width: 100%;
+cursor: pointer;
 
 }
 .search-result{
     padding: 16px 0;
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    row-gap: 40px;
+    column-gap: 40px;
 }
 
 /* .results{
@@ -92,6 +104,22 @@ color: #1F24B0;
     margin: 0 auto;
     gap: 24px;
 }
+.book-image
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 100%;
+    padding: 24px 0;
+    border: solid 2px #BEC0E7;
+    margin-bottom: 16px;
+    width: 100%;
+    border-radius: 8px;
+
+}
+.book-image svg{
+    height: 80%;
+}
 /* Filter */
 .filter{
     display: flex;
@@ -106,4 +134,5 @@ color: #1F24B0;
 }
 .bookimage{
   display: flex;
+
 }

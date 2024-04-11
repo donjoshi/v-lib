@@ -15,6 +15,8 @@
     gap: 8px;
     background-color:#EBF0FF ;
     align-items: flex-start;
+    border: solid 2px #1d389a70;
+    border-radius: 4px;
 }
 .count{
     font-size: 49px;

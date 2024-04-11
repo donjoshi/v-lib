@@ -146,11 +146,17 @@ export default function PdfView() {
     };
 
     return (
-        <div className="main-container">
+        <div className="main-container-pdfview">
             <div className="nav-container">
                 <NavbarMain />
             </div>
+        <div className="back-btn">
+        <svg width="33" height="32" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M9.55663 16.6667L17.2793 24.3894L16.3286 25.3334L6.9953 16.0001L16.3286 6.66675L17.2793 7.61075L9.55663 15.3334H25.662V16.6667H9.55663Z" fill="#2C2D3C"/>
+</svg>
 
+            <span>Back</span>
+        </div>
             <div className="pdf-view-container">
                 <div className="pdf-preview" ref={pdfViewerRef} >
 
@@ -168,7 +174,7 @@ export default function PdfView() {
                     )} */}
 
                     {pdfBlobUrl ? (
-                        <embed src={pdfBlobUrl} type="application/pdf" width="60%" height="600px"/>
+                        <embed className="embed-pdf"src={pdfBlobUrl} type="application/pdf" width="60%" height="600px"/>
                     ) : (
                         <p>PDF data is missing.</p>
                     )}
@@ -180,23 +186,27 @@ export default function PdfView() {
 
                 <div className="pdf-details">
                     {pdfDataURL ? (
-                        <div>
+                        <div className="details">
                             {isLoading && <p>Downloading PDF...</p>}
                             {downloadError && <p>Error downloading PDF: {downloadError}</p>}
 
-                            <button type="button" onClick={handleDownloadClick} disabled={isLoading}>
-                                Download PDF
-                            </button>
+                           
 
                             <div className="book-details">
-                                <h2>Book Details</h2>
+        
                                 <ul>
-                                    <li>ID: {bookDetails?.id || "NA"}</li>
-                                    <li>Title: {bookDetails?.title || "NA"}</li>
-                                    <li>Author: {bookDetails?.author || "NA"}</li>
+                                    {/* <li>ID: {bookDetails?.id || "NA"}</li> */}
+                                    <li className="Title-book"> {bookDetails?.title || "NA"}</li>
+                                    <li className="author">{bookDetails?.author || "NA"}</li>
                                     {/* Add other details as needed */}
                                 </ul>
-                            </div>
+                            </div> 
+                            <button className="primary btn" type="button" onClick={handleDownloadClick} disabled={isLoading}>
+                            <svg width="33" height="32" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M16.3286 22.0002V5.00024M9.32861 16.0002L16.3286 23.0002L23.3286 16.0002M9.32861 27.0002H23.3286" stroke="#FCFDFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+Download PDF
+                            </button>
                         </div>
                     ) : (
                         <div className="no-pdf">
