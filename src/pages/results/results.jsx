@@ -16,7 +16,7 @@ export default function Results() {
 
     const { apiResponse, textAreaValue } = location.state || {};
 
-    const [text_area, setText_area] = useState("");
+    const [text_area, setText_area] = useState(textAreaValue);
     const [isFocused, setIsFocused] = useState(false);
     const [loading, setLoading] = useState(false);
 
