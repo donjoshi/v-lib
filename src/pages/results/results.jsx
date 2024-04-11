@@ -188,7 +188,7 @@ export default function Results() {
                         </div> */}
                 </div>
                 <div className="search-space-2">
-                    <button type="submit" disabled={loading} onClick={handleButtonClick}>
+                    <button className="primary" type="submit" disabled={loading} onClick={handleButtonClick}>
 
                         {loading ? "Searching" : "Search"}
                     </button>

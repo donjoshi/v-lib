@@ -6,11 +6,10 @@
     justify-content: flex-end;
 }
 
-.main {
+.main-dashboard {
     float: right;
     display: flex;
     flex-direction: row;
-    padding: 8px 32px 8px 32px;
     align-items: center;
     justify-content: flex-end;
     gap: 40px;
@@ -47,4 +46,7 @@
     width:97px;
     height: 40px;
     gap:9px;
+}
+.navbar button{
+    font-size: 16px;
 }

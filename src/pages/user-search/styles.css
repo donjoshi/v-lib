@@ -59,8 +59,14 @@ box-shadow:0 0 4px #2C35FF ;
   button{
     height: 40px;
     padding: 0px 24px;
-    background-color:#3A3D84 ;
+    
     color: #FAFAFF;
+    
+    
+    cursor: pointer;
+  }
+  .primary{
+    background-color:#3A3D84 ;
     font-size: 18px;
     font-weight: 500;
     display: flex;
@@ -68,7 +74,6 @@ box-shadow:0 0 4px #2C35FF ;
     gap: 8px;
     border: none;
     border-radius: 100px;
-    cursor: pointer;
   }
   .search-space-2{
     display: flex;

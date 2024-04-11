@@ -104,7 +104,7 @@ export default function UserSearch() {
                             </div> */}
 
                             <div className="search-space-2">
-                                <button type="submit" disabled={loading}>
+                                <button className="primary" type="submit" disabled={loading}>
 
                                     {loading ? "Searching" : "Search"}
                                 </button>
