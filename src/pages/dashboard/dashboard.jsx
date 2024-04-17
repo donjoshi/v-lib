@@ -20,7 +20,7 @@ export default function Dashboard() {
 
     const fetchTotalBooks = async () => {
         try {
-            const response = await fetch("http://192.168.1.75:8000/findBook/getAllBooks");
+            const response = await fetch("http://127.0.0.1:8000/findBook/getAllBooks");
             if (!response.ok) {
                 throw new Error('Failed to fetch data');
             }
@@ -35,7 +35,7 @@ export default function Dashboard() {
 
     const fetchRecentlyAddedBooks = async () => {
         try {
-            const response = await fetch("http://192.168.1.75:8000/findBook/getTenBooks");
+            const response = await fetch("http://127.0.0.1:8000/findBook/getTenBooks");
             if (!response.ok) {
                 throw new Error('Failed to fetch data');
             }

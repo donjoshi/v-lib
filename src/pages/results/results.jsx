@@ -40,12 +40,12 @@ export default function Results() {
                 method: 'POST',
                 body: formData,
                 headers: {
-                    'Origin': 'http://192.168.1.75:8000' // Replace with your React app's origin
+                    'Origin': 'http://127.0.0.1:8000' // Replace with your React app's origin
                 },
                 // redirect: 'follow'
             };
 
-            const response = await fetch("http://192.168.1.75:8000/findBook/querySearch", requestOptions1)
+            const response = await fetch("http://127.0.0.1:8000/findBook/querySearch", requestOptions1)
 
             const data = await response.json();
             // navigate("/upload-success")
@@ -85,13 +85,13 @@ export default function Results() {
                 method: 'POST',
                 body: formData,
                 headers: {
-                    'Origin': 'http://192.168.1.75:8000', // Replace with your React app's origin
+                    'Origin': 'http://127.0.0.1:8000', // Replace with your React app's origin
                     // "Content-Type": "application/json",
                 },
                 // redirect: 'follow'
             };
 
-            const response = await fetch("http://192.168.1.75:8000/findBook/getPDF", requestOptions)
+            const response = await fetch("http://127.0.0.1:8000/findBook/getPDF", requestOptions)
 
             if (!response.ok) {
                 throw new Error("Failed to fetch PDF"); // Handle errors gracefully
@@ -111,7 +111,7 @@ export default function Results() {
                 const pdfDataURL = event.target.result; // Get the data URL
                 console.log(pdfDataURL)
 
-                console.log(apiResponse.result[bookId][1])
+                // console.log(apiResponse.result[bookId][1])
 
 
                 navigate("/view-pdf", {
