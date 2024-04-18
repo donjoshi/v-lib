@@ -3,6 +3,7 @@ import Navbar from "../../components/navbar";
 import './styles.css';
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import IP_ADDRESS from "../consts";
 
 export default function AdminPdfUpload2() {
 
@@ -51,12 +52,12 @@ export default function AdminPdfUpload2() {
                 method: 'POST',
                 body: formData, 
                 headers: {
-                    'Origin': 'http://192.168.1.75:8000' // Replace with your React app's origin
+                    'Origin': `${IP_ADDRESS}` // Replace with your React app's origin
                   },
                 // redirect: 'follow'
             };
 
-            const response1 = await fetch("http://192.168.1.75:8000/addBook", requestOptions)
+            const response1 = await fetch(`${IP_ADDRESS}/addBook`, requestOptions)
             // .then(response => response.text())
             // .then(result => console.log(result))
             // .catch(error => console.log('error', error));
