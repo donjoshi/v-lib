@@ -10,7 +10,6 @@ import IP_ADDRESS from "../consts";
 import { useEffect } from "react";
 
 
-
 export default function Results() {
     const location = useLocation();
 
@@ -19,18 +18,85 @@ export default function Results() {
     const [text_area, setText_area] = useState(textAreaValue);
     const [isFocused, setIsFocused] = useState(false);
     const [loading, setLoading] = useState(false);
+    const [filtered, setFiltered] = useState(false);
+    const [allBooks, setallBooks] = useState([]);
 
+
+    const [selectedGenres, setSelectedGenres] = useState([]);
+    const [startYear, setStartYear] = useState(1970);
+    const [endYear, setEndYear] = useState(2024);
+
+
+
+
+    // Fetch genre list from an API
+    useEffect(() => {
+        const fetchGenreList = async () => {
+
+            setGenreList(apiResponse['genre']);
+            setallBooks(apiResponse.result);
+        };
+
+        fetchGenreList();
+    }, [textAreaValue]);
+
+    let filteredBooks = allBooks;
+
+
+    const [genreList, setGenreList] = useState([]);
+
+    const handleGenreChange = (event) => {
+        const genre = event.target.value;
+
+        if (selectedGenres.includes(genre)) {
+            setSelectedGenres(selectedGenres.filter((g) => g !== genre));
+        } else {
+            setSelectedGenres([...selectedGenres, genre]);
+        }
+
+
+
+    };
+
+    const handleStartYearChange = (event) => {
+        setStartYear(parseInt(event.target.value));
+    };
+
+    const handleEndYearChange = (event) => {
+        setEndYear(parseInt(event.target.value));
+    };
+
+
+    // Filter the books based on the selected genre and publishing year range
+    filteredBooks = filteredBooks.filter((book) => {
+
+        if (selectedGenres.length === 0) {
+
+            const bookYear = parseInt(book[3].slice(0, 4));
+            // const isBookInSelectedGenres = (bookYear >= startYear &&  bookYear <= endYear) ? book : '';
+            // return isBookInSelectedGenres;
+            if (bookYear >= startYear &&  bookYear <= endYear) {
+                return book;
+            }
     
+        }
 
+        const bookGenres = book[6]?.split(",") || [];
+        const bookYear = parseInt(book[3].slice(0, 4));
+        const isBookInSelectedGenres =
+            ((bookYear >= startYear &&
+                bookYear <= endYear) ?
+                bookGenres.every((g) => selectedGenres.includes(g)) : "");
+        return isBookInSelectedGenres;
+    });
 
-    
 
     const navigate = useNavigate();
 
     async function handleButtonClick(event) {
         event.preventDefault(); // Prevent default form submission
 
-        console.log("entered the button click function");
+
 
         setLoading(true); // Set loading state
 
@@ -53,9 +119,9 @@ export default function Results() {
             const response = await fetch(`${IP_ADDRESS}/findBook/querySearch`, requestOptions1)
             const data = await response.json();
             // navigate("/upload-success")
-            // console.log(data);
+            console.log(data);
 
-            console.log(data['result'][0][0]);
+
 
             navigate("/results", {
                 state: {
@@ -207,6 +273,43 @@ export default function Results() {
 
 
 
+                        <div className="genre-filter">
+                            <span className="genre-label"><h3>Genre:</h3></span>
+                            {genreList.map((genre) => (
+                                <div key={genre} className="genre-checkbox" onClick={() => setFiltered(true)}>
+                                    <input
+                                        type="checkbox"
+                                        value={genre}
+                                        checked={selectedGenres.includes(genre)}
+                                        onChange={handleGenreChange}
+                                    />
+                                    <label htmlFor={genre}>{genre}</label>
+                                </div>
+                            ))}
+                        </div>
+                        <div className="year-filter">
+                            <span className="year-label"><h3>Publishing Year:</h3></span>
+                            <input
+                                type="number"
+                                value={startYear}
+                                min={1970}
+                                max={endYear}
+                                onChange={handleStartYearChange}
+                            />
+                            <span> - </span>
+                            <input
+                                type="number"
+                                value={endYear}
+                                min={startYear}
+                                max={2024}
+                                onChange={handleEndYearChange}
+                            />
+                        </div>
+
+
+
+
+
 
 
                     </div>
@@ -217,12 +320,16 @@ export default function Results() {
                     <div className="result-show">
                         <span className="results-header">Results</span>
                         <div className="display">
-                            {apiResponse && apiResponse.result && ( // Check for both apiResponse and result
+                            {/* {apiResponse && apiResponse.result && ( // Check for both apiResponse and result */}
 
 
-                                <ul className="search-result">
-                                    {/* Loop through each item in apiResponse.result */}
-                                    {apiResponse.result.map((item, index) => (
+
+                            <ul className="search-result">
+                                {/* Loop through each item in apiResponse.result */}
+                                {/* {apiResponse.result.map((item, index) => ( */}
+                                {filteredBooks &&
+                                    filteredBooks.map((item, index) => (
+
                                         <li className="results-detail" key={index}>
                                             <div className="book-image">
                                                 <svg width="99" height="123" viewBox="0 0 99 123" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -254,8 +361,8 @@ export default function Results() {
                                                 </p> */}
                                         </li>
                                     ))}
-                                </ul>
-                            )}
+                            </ul>
+                            {/* )} */}
                         </div>
                     </div>
                 </div>

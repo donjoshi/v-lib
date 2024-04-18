@@ -16,6 +16,8 @@ export default function UserSearch() {
 
     const navigate = useNavigate();
 
+    const genre_list=[];
+
 
 
     async function handleOnSubmit(event) {
@@ -48,7 +50,12 @@ export default function UserSearch() {
             // navigate("/upload-success")
             console.log(data);
 
-            console.log(data['result'][0][0]);
+            // console.log("genre is :  ",data['genre']);
+            genre_list.push(data['genre']);
+            
+
+            
+
 
             navigate("/results", {
                 state: {
