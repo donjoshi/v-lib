@@ -5,14 +5,15 @@ import { NavLink, Navigate } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import "./dashboard.css";
-
+import IP_ADDRESS from "../consts";
 
 
 export default function Dashboard() {
 
+    const navigate = useNavigate();
+
     const [totalBooks, setTotalBooks] = useState(0);
     const [recentlyAddedBooks, setRecentlyAddedBooks] = useState([]);
-
     useEffect(() => {
         fetchTotalBooks();
         fetchRecentlyAddedBooks();
@@ -20,13 +21,13 @@ export default function Dashboard() {
 
     const fetchTotalBooks = async () => {
         try {
-            const response = await fetch("http://127.0.0.1:8000/findBook/getAllBooks");
+            const response = await fetch(`${IP_ADDRESS}/findBook/getAllBooks`);
             if (!response.ok) {
                 throw new Error('Failed to fetch data');
             }
             const data = await response.json();
 
-            // console.log(data['result'].length);
+            console.log(data['result'].length);
             setTotalBooks(data['result'].length);
         } catch (error) {
             console.error('Error fetching data:', error);
@@ -35,7 +36,7 @@ export default function Dashboard() {
 
     const fetchRecentlyAddedBooks = async () => {
         try {
-            const response = await fetch("http://127.0.0.1:8000/findBook/getTenBooks");
+            const response = await fetch(`${IP_ADDRESS}/findBook/getTenBooks`);
             if (!response.ok) {
                 throw new Error('Failed to fetch data');
             }
@@ -47,6 +48,12 @@ export default function Dashboard() {
             console.error('Error fetching recently added books:', error);
         }
     };
+
+
+    const handleAllBook = () => 
+    {
+        navigate("/all-books");
+    }
 
 
     return (
@@ -78,7 +85,7 @@ export default function Dashboard() {
                 <div className="display-details">
                     <div className="table-heading">
                     <span className="table-header">Recently added</span>
-                    <button className="text-button"> View all books</button>
+                    <button className="text-button" onClick={handleAllBook}> View all books</button>
                     </div>
                     <div className="table">
                         <table className="table-books" border={1}>

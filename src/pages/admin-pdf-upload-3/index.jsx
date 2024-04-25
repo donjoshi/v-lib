@@ -74,7 +74,7 @@ export default function AdminPdfUpload3() {
 
             <div className="return">
                 <button className="CTA" onClick={handleOnClick}>Back to Dashboard</button>
-                <button className="CTA-NBG">Update details</button>
+                {/* <button className="CTA-NBG">Update details</button> */}
             </div>
 
         </div>

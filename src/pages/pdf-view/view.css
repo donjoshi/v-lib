@@ -66,6 +66,7 @@ ul{
     gap: 4px;
     align-items: center;
     margin-bottom: 40px;
+    cursor: pointer;
 }
 .back-btn span{
 font-size: 18px;

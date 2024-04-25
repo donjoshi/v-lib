@@ -50,7 +50,7 @@
     gap: 8px;
     border-radius: 8px;
     border:0.5px;
-    padding: 16px 64px 16px 64px;
+    padding: 40px 64px 40px 64px;
     background: #F5F5FF;
     justify-content: center;
     align-items: center;
@@ -60,9 +60,10 @@
 .upload .drag-and-drop
 {
 
-    height: 48px;
+    height: 40px;
     border-radius: 8px;
     border:1px;
+    stroke-dasharray: 50% 30%;
     border-style: dashed;
     gap:12px;
    color: #7073CA;

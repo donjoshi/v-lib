@@ -3,6 +3,7 @@ import NavbarMain from "../../components/navbar-main";
 import "./styles.css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import IP_ADDRESS from "../consts";
 
 
 export default function UserSearch() {
@@ -14,6 +15,8 @@ export default function UserSearch() {
     const [genre, setGenre] = useState('');
 
     const navigate = useNavigate();
+
+    const genre_list=[];
 
 
 
@@ -33,21 +36,26 @@ export default function UserSearch() {
                 method: 'POST',
                 body: formData,
                 headers: {
-                    'Origin': 'http://127.0.0.1:8000' // Replace with your React app's origin
+                    'Origin': `${IP_ADDRESS}` // Replace with your React app's origin
                 },
                 // redirect: 'follow'
             };
 
 
 
-            const response = await fetch("http://127.0.0.1:8000/findBook/querySearch", requestOptions1)
+            const response = await fetch(`${IP_ADDRESS}/findBook/querySearch`, requestOptions1)
 
 
             const data = await response.json();
             // navigate("/upload-success")
             console.log(data);
 
-            console.log(data['result'][0][0]);
+            // console.log("genre is :  ",data['genre']);
+            genre_list.push(data['genre']);
+            
+
+            
+
 
             navigate("/results", {
                 state: {

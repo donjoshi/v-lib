@@ -9,6 +9,8 @@ import UserSearch from "./pages/user-search";
 import Results from "./pages/results/results";
 import Dashboard from "./pages/dashboard/dashboard";
 import PdfView from "./pages/pdf-view/view";
+import AllBooks from "./pages/all-books/all_books";
+import How from "./pages/how/how";
 
 
 function App() {
@@ -24,6 +26,8 @@ function App() {
         <Route path="/results" element={<Results />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/view-pdf" element={<PdfView />} />
+        <Route path="/all-books" element={<AllBooks />} />
+        <Route path="/how" element={<How />} />
         
       </Routes>
     </div>

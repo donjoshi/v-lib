@@ -48,7 +48,9 @@ export default function PdfUpload()
         return (
             <div className="upload">
                 <div className="drag-and-drop">
-                    Drag & drop your books here
+                
+
+                    <span>Drag & drop your books here</span>
                 </div>
                 <div className="or">or</div>
 

@@ -7,12 +7,17 @@ import { useLocation } from "react-router-dom";
 import { useState } from "react";
 import { BlobProvider, Document, Page, pdfjs } from '@react-pdf/renderer';
 import { useEffect, useRef } from "react";
+import { useNavigate } from "react-router-dom";
+//import { useHistory } from 'react-router-dom';
+
+
 
 import 'viewerjs/dist/viewer.css';
 import Viewer from 'viewerjs';
 
 
 export default function PdfView() {
+    const history = useNavigate();
     const location = useLocation();
     const { pdfDataURL, pdfData, bookDetails } = location.state || {};
 
@@ -145,12 +150,18 @@ export default function PdfView() {
         }
     };
 
+
+    const handleBack = () => {
+        history(-1); // Use useHistory to navigate back
+      };
+
+
     return (
         <div className="main-container-pdfview">
             <div className="nav-container">
                 <NavbarMain />
             </div>
-        <div className="back-btn">
+        <div className="back-btn" onClick={handleBack}>
         <svg width="33" height="32" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M9.55663 16.6667L17.2793 24.3894L16.3286 25.3334L6.9953 16.0001L16.3286 6.66675L17.2793 7.61075L9.55663 15.3334H25.662V16.6667H9.55663Z" fill="#2C2D3C"/>
 </svg>
