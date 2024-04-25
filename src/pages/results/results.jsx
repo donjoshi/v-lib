@@ -269,15 +269,15 @@ export default function Results() {
             <div className="container-result">
                 <div className="filter">
                     <span className="Filter-Header">Filter</span>
-                    <div className="filter-content">
+                    <div className="filtercontent">
 
 
 
                         <div className="genre-filter">
-                            <span className="genre-label"><h3>Genre:</h3></span>
+                            <span className="genre-label">Genre:</span>
                             {genreList.map((genre) => (
                                 <div key={genre} className="genre-checkbox" onClick={() => setFiltered(true)}>
-                                    <input
+                                    <input className="genre-items"
                                         type="checkbox"
                                         value={genre}
                                         checked={selectedGenres.includes(genre)}
@@ -288,8 +288,8 @@ export default function Results() {
                             ))}
                         </div>
                         <div className="year-filter">
-                            <span className="year-label"><h3>Publishing Year:</h3></span>
-                            <input
+                            <span className="year-label">Publishing Year:</span>
+                            <div className="year-input"><input
                                 type="number"
                                 value={startYear}
                                 min={1970}
@@ -303,7 +303,7 @@ export default function Results() {
                                 min={startYear}
                                 max={2024}
                                 onChange={handleEndYearChange}
-                            />
+                            /></div>
                         </div>
 
 

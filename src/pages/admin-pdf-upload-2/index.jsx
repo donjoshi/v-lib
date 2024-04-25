@@ -155,7 +155,12 @@ export default function AdminPdfUpload2() {
 
                             <div className="upload">
                                 <div className="drag-and-drop">
-                                    <span>Drag & drop your books here</span>
+                                <svg width="33" height="32" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M12.1714 17.3333H20.1714M12.1714 12H17.5047M12.1714 22.6667H17.5047" stroke="#B7B4FD" stroke-width="2.66667" stroke-linecap="round"/>
+<path d="M25.5047 17.3333V20C25.5047 23.7707 25.5047 25.6573 24.3327 26.828C23.162 28 21.2754 28 17.5047 28H14.838C11.0674 28 9.18071 28 8.01004 26.828C6.83804 25.6573 6.83804 23.7707 6.83804 20V12C6.83804 8.22933 6.83804 6.34267 8.01004 5.172C9.18071 4 11.0674 4 14.838 4" stroke="#B7B4FD" stroke-width="2.66667"/>
+<path d="M24.1714 4V12M28.1714 8H20.1714" stroke="#B7B4FD" stroke-width="2.66667" stroke-linecap="round"/>
+</svg>
+                                    <span className="drag-label">Drag & drop your books here</span>
                                 </div>
                                 <div className="or">or</div>
 
