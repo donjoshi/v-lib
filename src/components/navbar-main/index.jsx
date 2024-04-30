@@ -10,7 +10,7 @@ export default function NavbarMain() {
     const navigate = useNavigate();
 
     return <div className="navbar-main">
-        <div className="logo" onClick={()=>{navigate("/")}}><svg width="68" height="40" viewBox="0 0 68 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <div className="logo" onClick={() => { navigate("/") }}><svg width="68" height="40" viewBox="0 0 68 40" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g clip-path="url(#clip0_607_873)">
                 <path d="M19.1731 4.9397H10.9738C10.6175 4.9397 10.3286 5.29339 10.3286 5.7297V35.5497C10.3286 35.986 10.6175 36.3397 10.9738 36.3397H19.1731C19.5294 36.3397 19.8182 35.986 19.8182 35.5497V5.7297C19.8182 5.29339 19.5294 4.9397 19.1731 4.9397Z" fill="#0B0075" />
                 <path d="M51.6199 4.9397H43.4206C43.0642 4.9397 42.7754 5.29339 42.7754 5.7297V35.5497C42.7754 35.986 43.0642 36.3397 43.4206 36.3397H51.6199C51.9762 36.3397 52.265 35.986 52.265 35.5497V5.7297C52.265 5.29339 51.9762 4.9397 51.6199 4.9397Z" fill="#0B0075" />
@@ -33,9 +33,11 @@ export default function NavbarMain() {
                 <span>Books</span>
             </div>
 
-            <div className="three">
-                <span>How it works</span>
-            </div>
+            {/* <div className="three">
+                <NavLink to={'/how'}>
+                    <span>How it works</span>
+                </NavLink>
+            </div> */}
 
             <div className="login">
                 <NavLink to={'/dashboard'}>Login</NavLink>

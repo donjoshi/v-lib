@@ -114,3 +114,12 @@
 .container .add-details .details .form-textfield{
     margin-bottom: 40px;
 }
+.drag-label{
+    font-size: 16px;
+    font-weight: 500;
+    color: #7073CA;
+    ;
+}
+.drag-and-drop{
+    stroke-dasharray: 50% 30%; 
+}

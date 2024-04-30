@@ -37,7 +37,7 @@ export default function AllBooks() {
                 <NavbarDashboard />
             </div>
 
-            <div className="table">
+            <div className="table table-margin">
                 <table className="table-books" border={1}>
                     <thead>
                         <tr>

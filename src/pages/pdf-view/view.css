@@ -72,3 +72,19 @@ ul{
 font-size: 18px;
 font-weight: 500;
 }
+
+
+.summary button
+{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border: none;
+    background-color: #424587;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 8px;
+    cursor: pointer;
+}

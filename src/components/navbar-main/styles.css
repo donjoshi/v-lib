@@ -16,3 +16,6 @@ a{
     margin-left: 24px;
     text-decoration: none;
 }
+.logo{
+    cursor: pointer;
+}
