@@ -38,7 +38,7 @@ box-shadow:0 0 4px #2C35FF ;
 }
 .text-area {
   width: 100%;
-    
+    z-index: -1000;
     text-overflow: ellipsis;
     overflow:clip ;
     font-size: 16px;
@@ -122,6 +122,9 @@ box-shadow:0 0 4px #2C35FF ;
     flex-direction: column;
     justify-content: center;
     gap: 12px;
+  }
+  .searchIcon{
+    z-index: -1000;
   }
   .genre-input{
     border: none;
