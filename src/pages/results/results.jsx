@@ -8,7 +8,7 @@ import { navigate } from "react-router-dom";
 import { Document, Page } from '@react-pdf/renderer';
 import IP_ADDRESS from "../consts";
 import { useEffect } from "react";
-import { BarLoader, CircleLoader, ClipLoader, BeatLoader, RotateLoader, ScaleLoader } from "react-spinners";
+import { BarLoader, CircleLoader, ClipLoader, BeatLoader, RotateLoader, ScaleLoader, HashLoader } from "react-spinners";
 import Typewriter from 'typewriter-effect';
 
 
@@ -452,6 +452,14 @@ export default function Results() {
 
                         {loadingSummary ? "Generating" : "Generate Answer"}
                         
+                        {
+                        loadingSummary &&
+                        (
+                            <div className="loading">
+                                <HashLoader color="#8487E2" size={"25"} />
+                            </div>)
+                    }
+
 
 
                     </button>
@@ -485,14 +493,14 @@ export default function Results() {
 
                     </div>
 
-                    {
+                    {/* {
                         loadingSummary &&
                         (
                             <div className="loading">
                                 <BeatLoader color="#424587" />
                             </div>)
                     }
-
+ */}
 
 
 
