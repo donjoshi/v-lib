@@ -448,9 +448,11 @@ export default function Results() {
                 </div>
 
                 <div className="get-summary">
-                    <button onClick={handleSummary}>
+                    <button className="button-glow btn"  onClick={handleSummary}>
 
                         {loadingSummary ? "Generating" : "Generate Answer"}
+                        
+
 
                     </button>
 
