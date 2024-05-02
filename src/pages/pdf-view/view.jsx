@@ -77,7 +77,7 @@ export default function PdfView() {
     }, [pdfData]);
 
     useEffect(() => {
-        
+
         if (pdfBlobUrl && pdfViewerRef.current) {
             // Render PDF using Viewer.js
             const viewer = new Viewer(pdfViewerRef.current, {
@@ -375,7 +375,7 @@ export default function PdfView() {
             {imageUrl && (
                 <div className="images-container">
                     {imageUrl.map((imageUrl, index) => (
-                        <img key={index} src={imageUrl} height={"500px"} alt={`Image from API ${index + 1}`} />
+                        <img key={index} src={imageUrl} height={"800px"} width={"500px"} alt={`Image from API ${index + 1}`} />
                     ))}
                 </div>
             )}

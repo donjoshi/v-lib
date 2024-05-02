@@ -107,3 +107,13 @@ font-weight: 500;
 .section-tt{
     font-size: 20px;
 }
+
+
+.images-container
+{
+border: #424587;
+border-radius: 16px;
+  overflow: auto;
+  white-space: nowrap;
+  padding: 10px;
+}
