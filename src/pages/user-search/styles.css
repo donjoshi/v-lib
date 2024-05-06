@@ -38,7 +38,7 @@ box-shadow:0 0 4px #2C35FF ;
 }
 .text-area {
   width: 100%;
-    z-index: -1000;
+    z-index: 1;
     text-overflow: ellipsis;
     overflow:clip ;
     font-size: 16px;
@@ -69,6 +69,7 @@ box-shadow:0 0 4px #2C35FF ;
     letter-spacing: -2px;
     line-height: 59px;
     margin: 0;
+    text-align: center;
   }
   .container4{
     display: flex;

@@ -9,15 +9,15 @@
   z-index: 999; /* Ensure it's on top of other content */
 }
 
-.MainContainer {
+.main-container {
   /* Your existing styles */
   transition: background-color 0.5s ease; /* Smooth transition for background color */
 }
-
 .fade {
+  height: 100vh;
   background-color: rgba(0, 0, 0, 0.8);
-  opacity: 100%; /* Change background color to semi-transparent black */
 }
+
 .AnimationBox {
   position: absolute;
   top: 50%;

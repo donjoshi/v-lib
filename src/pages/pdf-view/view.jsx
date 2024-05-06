@@ -5,12 +5,16 @@ import NavbarMain from "../../components/navbar-main";
 import "./view.css";
 import { useLocation } from "react-router-dom";
 import { useState } from "react";
-import { BlobProvider, Document, Page, pdfjs } from '@react-pdf/renderer';
+import { Page, Text, View, Document, PDFViewer, StyleSheet } from '@react-pdf/renderer';
+import { usePdf } from '@mikecousins/react-pdf';
+
 import { useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 //import { useHistory } from 'react-router-dom';
 import IP_ADDRESS from "../consts";
 import { BeatLoader } from "react-spinners";
+
+import { saveAs } from "file-saver"; // Import file-saver library
 
 
 
@@ -73,11 +77,18 @@ export default function PdfView() {
     }, [pdfData]);
 
     useEffect(() => {
+
         if (pdfBlobUrl && pdfViewerRef.current) {
             // Render PDF using Viewer.js
             const viewer = new Viewer(pdfViewerRef.current, {
                 url: pdfBlobUrl,
+                viewed() {
+                    console.log("Done viewing")
+                    viewer.view(5);
+                    viewer.rotate(180);
+                },
             });
+            viewer.rotate(180); // Show the first page by default
 
             return () => {
                 viewer.destroy();
@@ -85,7 +96,37 @@ export default function PdfView() {
         }
     }, [pdfBlobUrl]);
 
+    // useEffect(() => {
+    //     const handleDownload = async () => {
+    //       if (pdfDataURL) {
+    //         setIsLoading(true);
 
+    //         const filename = `book-${bookDetails?.title || "unknown"}.pdf`;
+
+    //         try {
+    //           const response = await fetch(pdfDataURL, {
+    //             method: "GET",
+    //             responseType: "blob",
+    //           });
+
+    //           if (response.ok) {
+    //             const blob = await response.blob();
+    //             saveAs(blob, filename); // Use file-saver to save the PDF
+    //           } else {
+    //             throw new Error("Failed to download PDF");
+    //           }
+    //         } catch (error) {
+    //           setDownloadError(error.message);
+    //           console.error("Download error:", error);
+    //         } finally {
+    //           setIsLoading(false);
+    //         }
+    //       }
+    //     };
+
+    //     // Trigger the download on component mount
+    //     handleDownload();
+    //   },);
 
 
     const handleDownloadClick = async () => {
@@ -161,22 +202,6 @@ export default function PdfView() {
                 return; // Handle missing image data gracefully
             }
 
-            // const base64Image = data2['image_list'][0];
-            // console.log("base64 image is ", base64Image)
-
-            // console.log("type of base64 ", typeof base64Image)
-
-            // let format = null; // Assuming format information is not provided by the API
-
-            // if (base64Image.startsWith('data:image/')) {
-            //     format = base64Image.split('/')[1].split(';')[0]; // Extract format if available in data URL
-            // } else {
-            //     console.warn("Unable to determine image format");
-            // }
-
-            // const dataUrl = `data:${format || 'image/jpeg'};base64,${base64Image}`; // Use default format if not available
-            // setImageUrl(dataUrl);
-            // console.log("image url is ", imageUrl)
 
             const images = data2.image_list; // Assuming data2.image_list is an array of base64 strings
             const imageUrls = images.map((image) => {
@@ -212,13 +237,49 @@ export default function PdfView() {
 
     }
 
+    console.log("pdf data url : ", pdfBlobUrl)
+
+    const [page, setPage] = useState(1);
+    const canvasRef = useRef(null);
 
 
+    // const { pdfDocument, pdfPage } = usePdf({
+    //     file: 'test.pdf',
+    //     page,
+    //     canvasRef,
+    // });
+    //const { pdfDocument, pdfPage } = usePdf({ canvasRef, file: pdfBlobUrl, page });
     return (
         <div className="main-container-pdfview">
             <div className="nav-container">
                 <NavbarMain />
             </div>
+            {/* <div>
+                <PDFViewer style={{ width: '50%', height: '100vh' }}>
+                    {!pdfDocument && <span>Loading...</span>}
+                    <canvas ref={canvasRef} />
+                    {Boolean(pdfDocument && pdfDocument.numPages) && (
+                        <nav>
+                            <ul className="pager">
+                                <li className="previous">
+                                    <button disabled={page === 1} onClick={() => setPage(page - 1)}>
+                                        Previous
+                                    </button>
+                                </li>
+                                <li className="next">
+                                    <button
+                                        disabled={page === pdfDocument.numPages}
+                                        onClick={() => setPage(page + 1)}
+                                    >
+                                        Next
+                                    </button>
+                                </li>
+                            </ul>
+                        </nav>
+                    )}
+                </PDFViewer>
+            </div> */}
+
             <div className="back-btn" onClick={handleBack}>
                 <svg width="33" height="32" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M9.55663 16.6667L17.2793 24.3894L16.3286 25.3334L6.9953 16.0001L16.3286 6.66675L17.2793 7.61075L9.55663 15.3334H25.662V16.6667H9.55663Z" fill="#2C2D3C" />
@@ -227,11 +288,11 @@ export default function PdfView() {
                 <span>Back</span>
             </div>
             <div className="pdf-view-container">
-                <div className="pdf-preview" ref={pdfViewerRef} >
+                <div className="pdf-preview"  >
 
 
                     {pdfBlobUrl ? (
-                        <embed className="embed-pdf" src={pdfBlobUrl} type="application/pdf" width="60%" height="600px" />
+                        <embed ref={pdfViewerRef} className="embed-pdf" src={pdfBlobUrl} type="application/pdf" width="60%" height="600px" />
                     ) : (
                         <p>PDF data is missing.</p>
                     )}
@@ -241,68 +302,71 @@ export default function PdfView() {
 
                 </div>
 
-                <div className="pdf-details">
-                    {pdfDataURL ? (
-                        <div className="details">
-                            {isLoading && <p>Downloading PDF...</p>}
-                            {downloadError && <p>Error downloading PDF: {downloadError}</p>}
+                <div className="side-box">
+                    <div className="pdf-details">
+                        {pdfDataURL ? (
+                            <div className="details">
+                                {isLoading && <p>Downloading PDF...</p>}
+                                {downloadError && <p>Error downloading PDF: {downloadError}</p>}
 
 
 
-                            <div className="book-details">
+                                <div className="book-details">
 
-                                <ul>
-                                    {/* <li>ID: {bookDetails?.id || "NA"}</li> */}
-                                    <li className="Title-book"> {bookDetails?.title || "NA"}</li>
-                                    <li className="author">{bookDetails?.author || "NA"}</li>
-                                    {/* Add other details as needed */}
-                                </ul>
+                                    <ul>
+                                        {/* <li>ID: {bookDetails?.id || "NA"}</li> */}
+                                        <li className="Title-book"> {bookDetails?.title || "NA"}</li>
+                                        <li className="author">{bookDetails?.author || "NA"}</li>
+                                        {/* Add other details as needed */}
+                                    </ul>
+                                </div>
+                                <button className="primary btn" type="button" onClick={handleDownloadClick} disabled={isLoading}>
+                                    <svg width="33" height="32" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M16.3286 22.0002V5.00024M9.32861 16.0002L16.3286 23.0002L23.3286 16.0002M9.32861 27.0002H23.3286" stroke="#FCFDFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                    Download PDF
+                                </button>
                             </div>
-                            <button className="primary btn" type="button" onClick={handleDownloadClick} disabled={isLoading}>
-                                <svg width="33" height="32" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M16.3286 22.0002V5.00024M9.32861 16.0002L16.3286 23.0002L23.3286 16.0002M9.32861 27.0002H23.3286" stroke="#FCFDFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
-                                Download PDF
-                            </button>
-                        </div>
-                    ) : (
-                        <div className="no-pdf">
-                            <h2>Couldn't retrieve PDF</h2>
-                            <p>There might be an issue fetching the PDF. Please try again.</p>
-                        </div>
-                    )}
+                        ) : (
+                            <div className="no-pdf">
+                                <h2>Couldn't retrieve PDF</h2>
+                                <p>There might be an issue fetching the PDF. Please try again.</p>
+                            </div>
+                        )}
 
-                    {/* <div>
+                        {/* <div>
                         {imageUrl && <img src={imageUrl} height={"500px"} alt="Image from API" />}
                     </div> */}
 
-                    <div className="summary">
-                        <p>{summary}</p>
+                        <div className="summary">
+                            <p>{summary}</p>
+                        </div>
+
+
                     </div>
 
 
-                </div>
 
 
+                    <div className="summary-section">
+                        <span className="section-tt">Do you want to go to the specific pages of the topic ?</span>
+                        <button onClick={handleSummary}>
 
+                            {loading ? "Searching..." : "Get pages"}
 
-                <div className="summary">
-                    <button onClick={handleSummary}>
+                        </button>
 
-                        {loading ? "Searching..." : "Get pages"}
+                        {
+                            loading && <BeatLoader color="#424587" />
+                        }
 
-                    </button>
-
-                    {
-                        loading && <BeatLoader color="#424587" />
-                    }
-
-                    <div className="pages">
-                        {pages.map((page, index) => (
-                            <div key={index} className="page">
-                                <p>{page}</p>
-                            </div>
-                        ))}
+                        <div className="pages">
+                            {pages.map((page, index) => (
+                                <div key={index} className="page">
+                                    <p>{page}</p>
+                                </div>
+                            ))}
+                        </div>
                     </div>
                 </div>
 
@@ -311,10 +375,12 @@ export default function PdfView() {
             {imageUrl && (
                 <div className="images-container">
                     {imageUrl.map((imageUrl, index) => (
-                        <img key={index} src={imageUrl} height={"500px"} alt={`Image from API ${index + 1}`} />
+                        <img key={index} src={imageUrl} height={"800px"} width={"500px"} alt={`Image from API ${index + 1}`} />
                     ))}
                 </div>
             )}
         </div>
     );
 }
+
+

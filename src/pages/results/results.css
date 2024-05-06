@@ -184,6 +184,9 @@ cursor: pointer;
 .get-summary{
     width: 40vw;
     padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
 }
 
 .get-summary button{
@@ -191,6 +194,7 @@ cursor: pointer;
     border-radius: 0px!important;
     border-image: linear-gradient(to left, #D3D2FF, #8487E2) 3;
     border-width: 3px;
+    width: fit-content;
     overflow: clip;
     color: #424587;;
     font-weight: 600;
@@ -213,4 +217,11 @@ cursor: pointer;
   }
  .glitter{
     z-index: 3000;
+ }
+ .answer{
+    color: #27374D;
+    text-align: left;
+ }
+ .loading{
+    margin-left: 16px;
  }

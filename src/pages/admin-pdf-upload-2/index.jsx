@@ -1,9 +1,10 @@
 import React from "react";
 import Navbar from "../../components/navbar";
 import './styles.css';
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import IP_ADDRESS from "../consts";
+import { BarLoader, CircleLoader, ClipLoader, RingLoader } from "react-spinners";
 
 export default function AdminPdfUpload2() {
 
@@ -117,6 +118,49 @@ export default function AdminPdfUpload2() {
                 <Navbar />
             </div>
 
+            {/* {
+                loading && (
+
+                    <div className="overlay">
+
+                        <div class="AnimationBox">
+                            <div class="star">
+                                <svg class="star1" width="33" height="34" viewBox="0 0 33 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M16.3474 0.943359V0.943359C18.5816 8.8037 24.7253 14.9475 32.5857 17.1816V17.1816V17.1816C24.7253 19.4158 18.5816 25.5595 16.3474 33.4199V33.4199V33.4199C14.1132 25.5595 7.96948 19.4158 0.109131 17.1816V17.1816V17.1816C7.96948 14.9475 14.1132 8.8037 16.3474 0.943359V0.943359Z" fill="#797DD5" />
+                                </svg>
+                            </div>
+                            <div class="book"> <svg class="book" width="89" height="119" viewBox="0 0 89 119" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="10.5793" y="3.16602" width="75.2194" height="104.774" rx="5.5" stroke="#DAE2FF" stroke-width="5" />
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M74.6782 24.2559H8.07946V33.805H74.6782V24.2559ZM74.6781 47.0981H8.07935V56.6473H74.6781V47.0981ZM8.07935 69.9404H74.6781V79.4895H8.07935V69.9404ZM74.6781 92.7827H8.07935V102.332H74.6781V92.7827Z" fill="url(#paint0_linear_607_682)" />
+                                <rect x="0.808105" y="8.90625" width="79.2194" height="108.774" rx="7.5" fill="url(#paint1_linear_607_682)" stroke="#DAE2FF" />
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M74.6782 29.0294C74.6782 26.3925 72.5405 24.2549 69.9036 24.2549H12.854C10.2171 24.2549 8.07946 26.3925 8.07946 29.0294V29.0294C8.07946 31.6664 10.2171 33.804 12.854 33.804H69.9036C72.5405 33.804 74.6782 31.6664 74.6782 29.0294V29.0294ZM74.6781 51.8717C74.6781 49.2348 72.5404 47.0972 69.9035 47.0972H12.8539C10.217 47.0972 8.07935 49.2348 8.07935 51.8717V51.8717C8.07935 54.5086 10.217 56.6463 12.8539 56.6463H69.9035C72.5404 56.6463 74.6781 54.5086 74.6781 51.8717V51.8717ZM8.07935 74.714C8.07935 72.0771 10.217 69.9394 12.8539 69.9394H69.9035C72.5404 69.9394 74.6781 72.0771 74.6781 74.714V74.714C74.6781 77.3509 72.5404 79.4886 69.9035 79.4886H12.8539C10.217 79.4886 8.07935 77.3509 8.07935 74.714V74.714ZM74.6781 97.5563C74.6781 94.9194 72.5404 92.7817 69.9035 92.7817H12.8539C10.217 92.7817 8.07935 94.9194 8.07935 97.5563V97.5563C8.07935 100.193 10.217 102.331 12.8539 102.331H69.9035C72.5404 102.331 74.6781 100.193 74.6781 97.5563V97.5563Z" fill="url(#paint2_linear_607_682)" />
+                                <defs>
+                                    <linearGradient id="paint0_linear_607_682" x1="8.07935" y1="102.727" x2="74.6781" y2="102.727" gradientUnits="userSpaceOnUse">
+                                        <stop stop-color="#EFEFFF" />
+                                        <stop offset="1" stop-color="#D3D2FF" />
+                                    </linearGradient>
+                                    <linearGradient id="paint1_linear_607_682" x1="40.4178" y1="8.40625" x2="40.4178" y2="118.18" gradientUnits="userSpaceOnUse">
+                                        <stop stop-color="#7073CA" />
+                                        <stop offset="1" stop-color="#8487E2" />
+                                    </linearGradient>
+                                    <linearGradient id="paint2_linear_607_682" x1="8.07935" y1="102.726" x2="74.6781" y2="102.726" gradientUnits="userSpaceOnUse">
+                                        <stop stop-color="#EFEFFF" />
+                                        <stop offset="1" stop-color="#D3D2FF" />
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                            </div>
+                            <div class="star down">
+                                <svg class="star2" width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M9.59485 0.84668V0.84668C10.7986 5.08182 14.1089 8.39206 18.344 9.59583V9.59583V9.59583C14.1089 10.7996 10.7986 14.1098 9.59485 18.345V18.345V18.345C8.39109 14.1098 5.08084 10.7996 0.845703 9.59583V9.59583V9.59583C5.08084 8.39206 8.39109 5.08182 9.59485 0.84668V0.84668Z" fill="#797DD5" />
+                                </svg>
+                            </div>
+                        </div>
+
+                    </div>
+                )
+            } */}
+
             <div className="container">
 
                 <div className="add-details">
@@ -182,50 +226,17 @@ export default function AdminPdfUpload2() {
                                 {loading ? "Uploading...." : "Upload Book"}
                             </button>
 
+
+                            {
+                                loading && (
+                                    <div className="loader">
+                                        <RingLoader color={"#424587"} loading={loading} size={50} />
+                                    </div>
+                                )
+                            }
+                            
                         </form>
 
-                        {
-                            loading && (
-
-                                <div className="overlay">
-
-                                    <div class="AnimationBox">
-                                        <div class="star">
-                                            <svg class="star1" width="33" height="34" viewBox="0 0 33 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M16.3474 0.943359V0.943359C18.5816 8.8037 24.7253 14.9475 32.5857 17.1816V17.1816V17.1816C24.7253 19.4158 18.5816 25.5595 16.3474 33.4199V33.4199V33.4199C14.1132 25.5595 7.96948 19.4158 0.109131 17.1816V17.1816V17.1816C7.96948 14.9475 14.1132 8.8037 16.3474 0.943359V0.943359Z" fill="#797DD5" />
-                                            </svg>
-                                        </div>
-                                        <div class="book"> <svg class="book" width="89" height="119" viewBox="0 0 89 119" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <rect x="10.5793" y="3.16602" width="75.2194" height="104.774" rx="5.5" stroke="#DAE2FF" stroke-width="5" />
-                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M74.6782 24.2559H8.07946V33.805H74.6782V24.2559ZM74.6781 47.0981H8.07935V56.6473H74.6781V47.0981ZM8.07935 69.9404H74.6781V79.4895H8.07935V69.9404ZM74.6781 92.7827H8.07935V102.332H74.6781V92.7827Z" fill="url(#paint0_linear_607_682)" />
-                                            <rect x="0.808105" y="8.90625" width="79.2194" height="108.774" rx="7.5" fill="url(#paint1_linear_607_682)" stroke="#DAE2FF" />
-                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M74.6782 29.0294C74.6782 26.3925 72.5405 24.2549 69.9036 24.2549H12.854C10.2171 24.2549 8.07946 26.3925 8.07946 29.0294V29.0294C8.07946 31.6664 10.2171 33.804 12.854 33.804H69.9036C72.5405 33.804 74.6782 31.6664 74.6782 29.0294V29.0294ZM74.6781 51.8717C74.6781 49.2348 72.5404 47.0972 69.9035 47.0972H12.8539C10.217 47.0972 8.07935 49.2348 8.07935 51.8717V51.8717C8.07935 54.5086 10.217 56.6463 12.8539 56.6463H69.9035C72.5404 56.6463 74.6781 54.5086 74.6781 51.8717V51.8717ZM8.07935 74.714C8.07935 72.0771 10.217 69.9394 12.8539 69.9394H69.9035C72.5404 69.9394 74.6781 72.0771 74.6781 74.714V74.714C74.6781 77.3509 72.5404 79.4886 69.9035 79.4886H12.8539C10.217 79.4886 8.07935 77.3509 8.07935 74.714V74.714ZM74.6781 97.5563C74.6781 94.9194 72.5404 92.7817 69.9035 92.7817H12.8539C10.217 92.7817 8.07935 94.9194 8.07935 97.5563V97.5563C8.07935 100.193 10.217 102.331 12.8539 102.331H69.9035C72.5404 102.331 74.6781 100.193 74.6781 97.5563V97.5563Z" fill="url(#paint2_linear_607_682)" />
-                                            <defs>
-                                                <linearGradient id="paint0_linear_607_682" x1="8.07935" y1="102.727" x2="74.6781" y2="102.727" gradientUnits="userSpaceOnUse">
-                                                    <stop stop-color="#EFEFFF" />
-                                                    <stop offset="1" stop-color="#D3D2FF" />
-                                                </linearGradient>
-                                                <linearGradient id="paint1_linear_607_682" x1="40.4178" y1="8.40625" x2="40.4178" y2="118.18" gradientUnits="userSpaceOnUse">
-                                                    <stop stop-color="#7073CA" />
-                                                    <stop offset="1" stop-color="#8487E2" />
-                                                </linearGradient>
-                                                <linearGradient id="paint2_linear_607_682" x1="8.07935" y1="102.726" x2="74.6781" y2="102.726" gradientUnits="userSpaceOnUse">
-                                                    <stop stop-color="#EFEFFF" />
-                                                    <stop offset="1" stop-color="#D3D2FF" />
-                                                </linearGradient>
-                                            </defs>
-                                        </svg>
-                                        </div>
-                                        <div class="star down">
-                                            <svg class="star2" width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M9.59485 0.84668V0.84668C10.7986 5.08182 14.1089 8.39206 18.344 9.59583V9.59583V9.59583C14.1089 10.7996 10.7986 14.1098 9.59485 18.345V18.345V18.345C8.39109 14.1098 5.08084 10.7996 0.845703 9.59583V9.59583V9.59583C5.08084 8.39206 8.39109 5.08182 9.59485 0.84668V0.84668Z" fill="#797DD5" />
-                                            </svg>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            )
-                        }
 
                     </div>
 
