@@ -448,6 +448,8 @@ export default function Results() {
                 </div>
 
                 <div className="get-summary">
+                    <span className="gts-title">Want quick answer ?</span>
+                    <span className="gts-subtitle">Get quick answerss for your queries in seconds</span>
                     <button className="button-glow btn"  onClick={handleSummary}>
 
                         {loadingSummary ? "Generating" : "Generate Answer"}

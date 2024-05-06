@@ -338,21 +338,20 @@ export default function PdfView() {
                         {imageUrl && <img src={imageUrl} height={"500px"} alt="Image from API" />}
                     </div> */}
 
-                        <div className="summary">
-                            <p>{summary}</p>
-                        </div>
+                        
 
 
                     </div>
-
+                    
 
 
 
                     <div className="summary-section">
-                        <span className="section-tt">Do you want to go to the specific pages of the topic ?</span>
-                        <button onClick={handleSummary}>
+                        <span className="section-tt">Get answer from this book</span>
+                        <span className="section-subtt">You can generate specific answer from this book for your query</span>
+                        <button className="button-glow btn" onClick={handleSummary}>
 
-                            {loading ? "Searching..." : "Get pages"}
+                            {loading ? "Generating answer..." : "Get answer"}
 
                         </button>
 
@@ -367,6 +366,9 @@ export default function PdfView() {
                                 </div>
                             ))}
                         </div>
+                    </div>
+                    <div className="summary">
+                            <p>{summary}</p>
                     </div>
                 </div>
 

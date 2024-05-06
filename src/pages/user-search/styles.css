@@ -35,6 +35,8 @@ gap: 8px;
 border: solid 1px #424587;
 border-radius: 100px;
 box-shadow:0 0 4px #2C35FF ;
+background-color: #ffff;
+z-index: 1;
 }
 .text-area {
   width: 100%;
@@ -64,12 +66,14 @@ box-shadow:0 0 4px #2C35FF ;
     letter-spacing: -.5px;
   }
   .Hero-header{
-    font-size: 49px ;
+    font-size: 64px ;
     font-weight: 500;
     letter-spacing: -2px;
     line-height: 59px;
     margin: 0;
+    color: #56588B;
     text-align: center;
+    font-family: "Gentium Book Plus", serif;
   }
   .container4{
     display: flex;
@@ -149,3 +153,66 @@ box-shadow:0 0 4px #2C35FF ;
     content: "";
     outline: none;
   }
+/* Background*/
+.bg{
+  width: 100vw;
+  position: absolute;
+  top: 0;
+  z-index: -100;
+  display: flex;
+  justify-content: space-between;
+}
+.hero-btn{
+  background: linear-gradient(111.83deg, #7E82D7 14.3%, #3B3E8A 108.89%);
+border: solid 2px #ABAEF4;
+padding:24px 48px;
+transition: all 2s ease!important;
+z-index: 10;
+}
+.hero-btn:hover{
+  background: linear-gradient(30.83deg, #7E82D7 14.3%, #3B3E8A 108.89%);
+
+}
+.el{
+  position: absolute;
+}
+@keyframes moveUpDown {
+  0% {
+    transform: translateY(0); /* Start position */
+  }
+  50% {
+    transform: translateY(-20px); /* Midway position, moving up */
+  }
+  100% {
+    transform: translateY(0); /* End position, back to start */
+  }
+}
+
+.el svg:nth-child(odd) {
+  animation: moveUpDown 2s ease-in-out infinite; /* Apply the animation with 2s duration, ease-in-out easing, and infinite loop */
+}
+@keyframes moveUp {
+  0% {
+    transform: translateY(0); /* Start position */
+  }
+  50% {
+    transform: translateY(20px); /* Midway position, moving up */
+  }
+  100% {
+    transform: translateY(0); /* End position, back to start */
+  }
+}
+.el svg:nth-child(even) {
+  animation: moveUp 2s ease-in-out infinite; /* Apply the animation with 2s duration, ease-in-out easing, and infinite loop */
+}
+
+.el svg:nth-child(odd){
+  position: absolute;
+  top: 50px;
+  left: 400px;
+}
+.el svg:nth-child(even){
+  position: absolute;
+  top: 0px;
+  right: 500px;
+}
