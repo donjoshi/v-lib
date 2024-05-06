@@ -35,7 +35,11 @@ export default function Results() {
 
     const [isTyping, setIsTyping] = useState(false); // Initially not typing
 
-    console.log("api response is ", apiResponse);
+    console.log("api response is ", !(apiResponse['result']));
+
+    if(!(apiResponse['result'])){
+        console.log("no books available")
+    }
 
     useEffect(() => {
         if (loadingSummary) {

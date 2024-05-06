@@ -21,6 +21,7 @@ import { saveAs } from "file-saver"; // Import file-saver library
 import 'viewerjs/dist/viewer.css';
 import Viewer from 'viewerjs';
 import { type } from "@testing-library/user-event/dist/type";
+import Model from 'react-modal';
 
 
 export default function PdfView() {
@@ -40,6 +41,7 @@ export default function PdfView() {
 
     const [imageUrl, setImageUrl] = useState(null);
     const [summary, setSummary] = useState(null);
+    const [showImage, setShowImage] = useState(false);
 
 
 
@@ -222,6 +224,8 @@ export default function PdfView() {
 
             setPages(data2['pages'])
 
+            setShowImage(true);
+
 
 
 
@@ -379,6 +383,41 @@ export default function PdfView() {
                     ))}
                 </div>
             )}
+
+            {/* <Model isOpen={showImage} onRequestClose={() => setShowImage(false)} className="images-container-popup"
+
+                style={{
+                    content: {
+                        position: 'absolute',
+                        marginTop: '100px',
+                        top: '50%',
+                        left: '50%',
+                        right: 'auto',
+                        bottom: 'auto',
+                        transform: 'translate(-50%, -50%)',
+                        marginRight: '-50%',
+                        width: '80%',
+                        height: 'auto%',
+                        margin: 'auto',
+                        padding: '20px',
+                        borderRadius: '10px',
+                        border: '1px solid black',
+                        gap: '10px',
+                        backgroundColor: 'white',
+
+                    }
+                }}
+            >
+
+
+                {imageUrl && (
+                    <div className="images-container">
+                        {imageUrl.map((imageUrl, index) => (
+                            <img key={index} src={imageUrl} height={"800px"} width={"500px"} alt={`Image from API ${index + 1}`} />
+                        ))}
+                    </div>
+                )}
+            </Model> */}
         </div>
     );
 }
