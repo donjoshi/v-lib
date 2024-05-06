@@ -352,13 +352,14 @@ export default function PdfView() {
                         <button className="button-glow btn" onClick={handleSummary}>
 
                             {loading ? "Generating answer..." : "Get answer"}
+                            {
+                            loading && <BeatLoader color="#424587" size={7}  />
+                        }
+
 
                         </button>
 
-                        {
-                            loading && <BeatLoader color="#424587" />
-                        }
-
+                        
                         <div className="pages">
                             {pages.map((page, index) => (
                                 <div key={index} className="page">

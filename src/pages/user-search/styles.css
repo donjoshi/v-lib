@@ -21,7 +21,7 @@
 }
 
 .fade {
-  background-color: rgba(0, 0, 0, 0.8); /* Change background color to semi-transparent black */
+  background-color: rgba(255, 255, 255, 0.964); /* Change background color to semi-transparent black */
   opacity: 100%;
 }
 .content{
@@ -175,13 +175,15 @@ z-index: 10;
 }
 .el{
   position: absolute;
+  overflow: none;
+  width: 100vw;
 }
 @keyframes moveUpDown {
   0% {
     transform: translateY(0); /* Start position */
   }
   50% {
-    transform: translateY(-20px); /* Midway position, moving up */
+    transform: translateY(-10px); /* Midway position, moving up */
   }
   100% {
     transform: translateY(0); /* End position, back to start */
@@ -189,30 +191,60 @@ z-index: 10;
 }
 
 .el svg:nth-child(odd) {
-  animation: moveUpDown 2s ease-in-out infinite; /* Apply the animation with 2s duration, ease-in-out easing, and infinite loop */
+  animation: moveUpDown 3s ease-in-out infinite; /* Apply the animation with 2s duration, ease-in-out easing, and infinite loop */
 }
 @keyframes moveUp {
   0% {
     transform: translateY(0); /* Start position */
   }
   50% {
-    transform: translateY(20px); /* Midway position, moving up */
+    transform: translateY(10px); /* Midway position, moving up */
   }
   100% {
     transform: translateY(0); /* End position, back to start */
   }
 }
 .el svg:nth-child(even) {
-  animation: moveUp 2s ease-in-out infinite; /* Apply the animation with 2s duration, ease-in-out easing, and infinite loop */
+  animation: moveUp 3s ease-in-out infinite; /* Apply the animation with 2s duration, ease-in-out easing, and infinite loop */
 }
 
-.el svg:nth-child(odd){
-  position: absolute;
-  top: 50px;
-  left: 400px;
+.el svg:nth-child(1){
+  position: relative;
+  top: 20px;
+  left: 50px;
 }
-.el svg:nth-child(even){
-  position: absolute;
-  top: 0px;
-  right: 500px;
+.el svg:nth-child(2){
+  position: relative;
+  top: -100px;
+left: -300px;
+}
+.el svg:nth-child(3){
+  position: relative;
+  top: 0pxx;
+  right: -400px;
+}
+.el svg:nth-child(4){
+  position: relative;
+  top: 100px;
+  left: 80px;
+}
+.el svg:nth-child(5){
+  position: relative;
+  right:-1080px;
+ top: -300px;
+}
+.el svg:nth-child(6){
+  position: relative;
+  top: 100px;
+  right: 100px;
+}
+.el svg:nth-child(7){
+  position: relative;
+  top: -300px;
+  right: 80px;
+}
+.el svg:nth-child(8){
+  position: relative;
+  top: 200px;
+  right: 80px;
 }
