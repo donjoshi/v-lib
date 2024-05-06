@@ -21,7 +21,11 @@ export default function Dashboard() {
 
     const fetchTotalBooks = async () => {
         try {
+<<<<<<< Updated upstream
             const response = await fetch(`${IP_ADDRESS}/findBook/getAllBooks`);
+=======
+            const response = await fetch("http://192.168.117.196:8000/findBook/getAllBooks");
+>>>>>>> Stashed changes
             if (!response.ok) {
                 throw new Error('Failed to fetch data');
             }
@@ -36,7 +40,11 @@ export default function Dashboard() {
 
     const fetchRecentlyAddedBooks = async () => {
         try {
+<<<<<<< Updated upstream
             const response = await fetch(`${IP_ADDRESS}/findBook/getTenBooks`);
+=======
+            const response = await fetch("http://192.168.117.196:8000/findBook/getTenBooks");
+>>>>>>> Stashed changes
             if (!response.ok) {
                 throw new Error('Failed to fetch data');
             }
@@ -57,38 +65,38 @@ export default function Dashboard() {
 
 
     return (
-        <div className="main-container-dashboard">
+        <div className="main-container">
             <div>
                 <NavbarDashboard />
             </div>
 
-            <div className="container-dashboard">
-                {/* <div className="search">
-                <svg width="25" height="28" viewBox="0 0 25 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M11.9858 20C15.8518 20 18.9858 16.866 18.9858 13C18.9858 9.13401 15.8518 6 11.9858 6C8.11985 6 4.98584 9.13401 4.98584 13C4.98584 16.866 8.11985 20 11.9858 20Z" stroke="#888990" stroke-width="2"/>
-<path d="M20.9858 22L17.9858 19" stroke="#888990" stroke-width="2" stroke-linecap="round"/>
-</svg>
+            <div className="container">
+                <div className="search">
+                    <input type="text" placeholder="Search book" />
+                </div>
 
-                    <input className="search-input" type="text" placeholder="Search book" />
-                </div> */}
-
-                <div className="dashboard-items">
+                <div className="total-book-count">
                     <div className="count">
                         {totalBooks}
                     </div>
-                    <span className="descr">
+                    <div className="text">
                         Total Books
-                    </span>
+                    </div>
 
                 </div>
 
                 <div className="display-details">
+<<<<<<< Updated upstream
                     <div className="table-heading">
                     <span className="table-header">Recently added</span>
                     <button className="text-button" onClick={handleAllBook}> View all books</button>
                     </div>
+=======
+                    Recently added
+
+>>>>>>> Stashed changes
                     <div className="table">
-                        <table className="table-books" border={1}>
+                        <table border={1}>
                             <thead>
                                 <tr>
                                     <th>Books</th>                
@@ -97,12 +105,10 @@ export default function Dashboard() {
                             </thead>
                             <tbody>
                                 {recentlyAddedBooks.map((book, index) => (
-                                    <tr className="table-row" key={index}>
-                                        <td className="book-details "><span className="book-name">
-                                        {book[1]}</span>
-                                        <span className="book-author ">{book[2]}</span></td>
-                                        
-                                        <td className="book-year">{book[3]}</td>
+                                    <tr key={index}>
+                                        <td>{book[1]}</td>
+                                        <td>{book[3]}</td>
+
                                     </tr>
                                 ))}
                             </tbody>

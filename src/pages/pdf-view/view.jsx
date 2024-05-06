@@ -249,6 +249,7 @@ export default function PdfView() {
     //     canvasRef,
     // });
     //const { pdfDocument, pdfPage } = usePdf({ canvasRef, file: pdfBlobUrl, page });
+    const pageMessage = "Please refer to the following pages: ";
     return (
         <div className="main-container-pdfview">
             <div className="nav-container">
@@ -338,11 +339,11 @@ export default function PdfView() {
                         {imageUrl && <img src={imageUrl} height={"500px"} alt="Image from API" />}
                     </div> */}
 
-                        
+
 
 
                     </div>
-                    
+
 
 
 
@@ -353,24 +354,26 @@ export default function PdfView() {
 
                             {loading ? "Generating answer..." : "Get answer"}
                             {
-                            loading && <BeatLoader color="#424587" size={7}  />
-                        }
+                                loading && <BeatLoader color="#424587" size={7} />
+                            }
 
 
                         </button>
 
-                        
+
                         <div className="pages">
+                            {pages.length != 0 && <p>Please refer to the following page numbers:<span>&nbsp;</span></p>}
                             {pages.map((page, index) => (
                                 <div key={index} className="page">
-                                    <p>{page}</p>
+                                    {index == pages.length - 1 ? <p>{page}</p> : <p>{page}, </p>}
                                 </div>
                             ))}
                         </div>
                     </div>
-                    <div className="summary">
-                            <p>{summary}</p>
-                    </div>
+
+                    {summary && (<div className="summary">
+                        <p>{summary}</p>
+                    </div>)}
                 </div>
 
             </div>
