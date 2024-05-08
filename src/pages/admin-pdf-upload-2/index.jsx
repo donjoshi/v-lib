@@ -224,20 +224,20 @@ export default function AdminPdfUpload2() {
 
                             <button type="submit" disabled={loading}>
                                 {loading ? "Uploading...." : "Upload Book"}
+
                             </button>
 
 
-                            {
-                                loading && (
-                                    <div className="loader">
-                                        <RingLoader color={"#424587"} loading={loading} size={50} />
-                                    </div>
-                                )
-                            }
-                            
+
                         </form>
 
-
+                        {/* {
+                            loading && (
+                                <div className="loader">
+                                    <RingLoader color={"#424587"} loading={loading} size={50} />
+                                </div>
+                            )
+                        } */}
                     </div>
 
                 </div>

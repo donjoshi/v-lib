@@ -41,22 +41,14 @@ export default function UserSearch() {
                 method: 'POST',
                 body: formData,
                 headers: {
-<<<<<<< Updated upstream
                     'Origin': `${IP_ADDRESS}` // Replace with your React app's origin
-=======
-                    'Origin': 'http://192.168.225.176:8000' // Replace with your React app's origin
->>>>>>> Stashed changes
                 },
                 // redirect: 'follow'
             };
 
 
 
-<<<<<<< Updated upstream
             const response = await fetch(`${IP_ADDRESS}/findBook/querySearch`, requestOptions1)
-=======
-            const response = await fetch("http://192.168.225.176:8000/findBook/querySearch", requestOptions1)
->>>>>>> Stashed changes
 
 
             const data = await response.json();

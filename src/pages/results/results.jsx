@@ -18,9 +18,6 @@ export default function Results() {
     const { apiResponse, textAreaValue } = location.state || {};
 
     const [text_area, setText_area] = useState(textAreaValue);
-
-
-    
     const [isFocused, setIsFocused] = useState(false);
     const [loading, setLoading] = useState(false);
     const [filtered, setFiltered] = useState(false);
@@ -57,7 +54,7 @@ export default function Results() {
     }, [loadingSummary, summary]);
 
 
-    // console.log("text area value is ", summary);
+
 
 
 
@@ -143,21 +140,12 @@ export default function Results() {
                 method: 'POST',
                 body: formData,
                 headers: {
-<<<<<<< Updated upstream
                     'Origin': `${IP_ADDRESS}` // Replace with your React app's origin
-=======
-                    'Origin': 'http://192.168.225.176:8000' // Replace with your React app's origin
->>>>>>> Stashed changes
                 },
                 // redirect: 'follow'
             };
 
-<<<<<<< Updated upstream
             const response = await fetch(`${IP_ADDRESS}/findBook/querySearch`, requestOptions1)
-=======
-            const response = await fetch("http://192.168.225.176:8000/findBook/querySearch", requestOptions1)
-
->>>>>>> Stashed changes
             const data = await response.json();
             // navigate("/upload-success")
             console.log(data);
@@ -194,21 +182,12 @@ export default function Results() {
                 method: 'POST',
                 body: formData,
                 headers: {
-<<<<<<< Updated upstream
                     'Origin': `${IP_ADDRESS}`, // Replace with your React app's origin
-=======
-                    'Origin': 'http://192.168.225.176:8000', // Replace with your React app's origin
-                    // "Content-Type": "application/json",
->>>>>>> Stashed changes
                 },
                 // redirect: 'follow'
             };
 
-<<<<<<< Updated upstream
             const response = await fetch(`${IP_ADDRESS}/findBook/getPDF`, requestOptions)
-=======
-            const response = await fetch("http://192.168.225.176:8000/findBook/getPDF", requestOptions)
->>>>>>> Stashed changes
 
             if (!response.ok) {
                 throw new Error("Failed to fetch PDF"); // Handle errors gracefully
@@ -272,7 +251,6 @@ export default function Results() {
                 formData.append('query', apiResponse['query']);
                 formData.append('keywords_query', apiResponse['keywords_query'])
 
-
                 var requestOptions2 = {
                     method: 'POST',
                     body: formData,
@@ -293,7 +271,6 @@ export default function Results() {
                 const data1 = await response1.json();
 
                 setSummary(data1['answer']);
-                console.log("summary details :" ,data1);
             }
             catch (e) {
                 console.log(e)
@@ -360,7 +337,7 @@ export default function Results() {
 
                 </div>
                 <div className="search-space-2">
-                    <button type="submit" disabled={loading} onClick={handleButtonClick}>
+                    <button className="primary" type="submit" disabled={loading} onClick={handleButtonClick}>
 
                         {loading ? "Searching" : "Search"}
                     </button>
@@ -421,7 +398,6 @@ export default function Results() {
                 <div className="result-part">
 
                     <div className="result-show">
-<<<<<<< Updated upstream
                         <span className="results-header">Results</span>
                         <div className="display">
                             {/* {apiResponse && apiResponse.result && ( // Check for both apiResponse and result */}
@@ -467,33 +443,12 @@ export default function Results() {
                                     ))}
                             </ul>
                             {/* )} */}
-=======
-                        <div className="results">
-                            <span className="results-header">Results</span>
-                            <div className="display">
-                                {apiResponse && apiResponse.result && ( // Check for both apiResponse and result
-                                    <ul className="search-result">
-                                        {/* Loop through each item in apiResponse.result */}
-                                        {apiResponse.result.map((item, index) => (
-                                            <li key={index}>
-                                                {/* Access and display properties of each item */}
-                                                <span className="Title-name" onClick={() => handleTitleClick(item[0],item[1],item[2],item[5])}>{item[1]}</span>
-                                                <span className="Author-name">{item[2]}</span>
-                                                <span className="Doc-type">{item[4]}</span>
-                                                <span className="year-of-publish">{item[3]}</span>
-
-                                            </li>
-                                        ))}
-                                    </ul>
-                                )}
-                            </div>
->>>>>>> Stashed changes
                         </div>
                     </div>
                 </div>
 
                 <div className="get-summary">
-                    <span className="gts-title">Want quick answer ?</span>
+                    <span className="gts-title">Want a quick answer ?</span>
                     <span className="gts-subtitle">Get quick answerss for your queries in seconds</span>
                     <button className="button-glow btn"  onClick={handleSummary}>
 
@@ -558,6 +513,5 @@ export default function Results() {
             </div>
         </div>
 
-        </div>
     );
 }
