@@ -342,9 +342,7 @@ export default function PdfView() {
                         {imageUrl && <img src={imageUrl} height={"500px"} alt="Image from API" />}
                     </div> */}
 
-                        <div className="summary">
-                            <p>{summary}</p>
-                        </div>
+
 
 
                     </div>
@@ -353,34 +351,64 @@ export default function PdfView() {
 
 
                     <div className="summary-section">
-                        <span className="section-tt">Do you want to go to the specific pages of the topic ?</span>
-                        <button onClick={handleSummary}>
+                        <span className="section-tt">Get answer from this book</span>
+                        <span className="section-subtt">You can generate specific answer from this book for your query</span>
+                        <button className="button btn" onClick={handleSummary}>
 
-                            {loading ? "Searching..." : "Get pages"}
+                            {loading ? "Generating answer..." : "Get answer"}
+                            {
+                                loading && <BeatLoader color="#424587" size={7} />
+                            }
+
 
                         </button>
 
-                        {
-                            loading && <BeatLoader color="#424587" />
-                        }
 
-                        <div className="pages">
+
+                    </div>
+                    {summary && (<div className="pages">
+                        <div className="nb">
+                            {summary && <p>You can refer the following page numbers : </p>}
+                            {/* {pages.map((page, index) => (
+                                // <div key={index} className="page">
+                                //     <p>{page}</p>
+                                // </div>
+
+                                {pages.length - 1 !== index ? <p>{page},</p> : <p>{page}</p>}
+                                
+                            ))} */}
                             {pages.map((page, index) => (
                                 <div key={index} className="page">
-                                    <p>{page}</p>
+                                    {/* Render comma after each page except for the last one */}
+                                    {pages.length - 1 !== index ? <p>{page},</p> : <p>{page}</p>}
                                 </div>
                             ))}
                         </div>
-                    </div>
+
+                    </div>)}
+                    {summary && (<div className="summary-ctn">
+                        <div className="ai"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M24 5.37931C21.2293 4.94405 19.0559 2.77072 18.6207 0C18.1854 2.77072 16.0121 4.94405 13.2414 5.37931C16.0121 5.81457 18.1854 7.9879 18.6207 10.7586C19.0559 7.9879 21.2293 5.81457 24 5.37931ZM20.6897 13.6552C15.3614 12.8181 11.1819 8.63865 10.3448 3.31034C9.50779 8.63865 5.3283 12.8181 0 13.6552C5.3283 14.4922 9.50779 18.6717 10.3448 24C11.1819 18.6717 15.3614 14.4922 20.6897 13.6552Z" fill="#7073CA" />
+                        </svg>
+                            <span>AI Generated</span></div>
+                        {summary && (<div className="summary">
+                            <p>{summary}</p>
+                        </div>)}
+                    </div>)}
+
                 </div>
 
             </div>
-
+                            
             {imageUrl && (
+                <div className="img-main">
+                <span>These pages can be referred for better understanding</span>
                 <div className="images-container">
+                    
                     {imageUrl.map((imageUrl, index) => (
                         <img key={index} src={imageUrl} height={"800px"} width={"500px"} alt={`Image from API ${index + 1}`} />
                     ))}
+                </div>
                 </div>
             )}
 
