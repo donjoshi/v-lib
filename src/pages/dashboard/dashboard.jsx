@@ -82,15 +82,11 @@ export default function Dashboard() {
                 </div>
 
                 <div className="display-details">
-<<<<<<< Updated upstream
+
                     <div className="table-heading">
                     <span className="table-header">Recently added</span>
                     <button className="text-button" onClick={handleAllBook}> View all books</button>
                     </div>
-=======
-                    Recently added
-
->>>>>>> Stashed changes
                     <div className="table">
                         <table border={1}>
                             <thead>
